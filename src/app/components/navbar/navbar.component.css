@@ -1,0 +1,28 @@
+.navbar {
+  background-color: #313131;
+  color: white;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container > button {
+  flex: 1;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.container > button:hover {
+  opacity: 1;
+}
+
+.navbar .mat-menu-panel {
+  opacity: 0.8;
+  color: #313131;
+}
