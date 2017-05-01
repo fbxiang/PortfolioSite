@@ -7,7 +7,6 @@ import {  } from '@angular/material';
   styleUrls: ['./headbar.component.css']
 })
 export class HeadbarComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

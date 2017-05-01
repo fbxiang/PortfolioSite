@@ -9,11 +9,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './components/app/app.component';
 import { HeadbarComponent } from './components/headbar/headbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { FootnoteComponent } from './components/footnote/footnote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeadbarComponent
+    HeadbarComponent,
+    NavbarComponent,
+    GalleryComponent,
+    FootnoteComponent,
   ],
   imports: [
     BrowserModule,
