@@ -1,14 +1,5 @@
 <div class="gallery">
-  <md-card>
-    <img src="../../assets/main_unity.png"/>
-  </md-card>
-  <md-card>
-    <img src="../../assets/main_android.png"/>
-  </md-card>
-  <md-card>
-    <img src="../../assets/main_physics.png"/>
-  </md-card>
-  <md-card>
-    <img src="../../assets/main_music.png"/>
+  <md-card *ngFor="let card of cards">
+    <a routerLink="{{card.href}}"><img src="{{card.img}}"/></a>
   </md-card>
 </div>

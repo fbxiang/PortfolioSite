@@ -14,6 +14,15 @@ md-card {
   border-radius: 10px;
   padding: 10px;
   background-color: #f6f6f6;
+  z-index: 0;
+  transform: scale(1);
+  transition: transform 1s, z-index 1s;
+}
+
+md-card:hover {
+  z-index: 10000;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 md-card img {

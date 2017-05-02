@@ -17,6 +17,24 @@
   margin: auto;
 }
 
+.subtitle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.subtitle > div {
+  margin: auto 7px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
 .headbar a {
   font-size: 1.2em;
   text-decoration: none;

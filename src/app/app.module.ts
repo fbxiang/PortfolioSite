@@ -7,19 +7,20 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { FanboModule } from './fanbo.module';
+
 import { AppComponent } from './components/app/app.component';
-import { HeadbarComponent } from './components/headbar/headbar.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
-import { FootnoteComponent } from './components/footnote/footnote.component';
+
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: '', redirectTo: "fanboxiang", pathMatch: 'full'},
+  {path: 'fanboxiang', loadChildren: 'app/fanbo.module#FanboModule'}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeadbarComponent,
-    NavbarComponent,
-    GalleryComponent,
-    FootnoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,7 @@ import { FootnoteComponent } from './components/footnote/footnote.component';
     HttpModule,
     MaterialModule.forRoot(),
     BrowserAnimationsModule,
-    FlexLayoutModule
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
