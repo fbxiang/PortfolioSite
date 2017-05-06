@@ -1,0 +1,7 @@
+<div class="navbar">
+  <div class="container">
+    <button *ngFor="let item of items" md-button
+            routerLink="{{item.href}}">{{item.name}}
+    </button>
+  </div>
+</div>
