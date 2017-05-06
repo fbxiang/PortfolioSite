@@ -7,15 +7,13 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { FanboModule } from './fanbo.module';
-
 import { AppComponent } from './components/app/app.component';
 
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path: '', redirectTo: "fanboxiang", pathMatch: 'full'},
-  {path: 'fanboxiang', loadChildren: 'app/fanbo.module#FanboModule'}
+  {path: 'fanboxiang', loadChildren: 'fanbo/fanbo.module#FanboModule'}
 ]
 
 @NgModule({
