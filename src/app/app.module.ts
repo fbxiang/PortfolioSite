@@ -24,7 +24,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],

@@ -8,18 +8,28 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { FootnoteComponent } from './components/footnote/footnote.component';
 import { FanboComponent } from './components/fanbo/fanbo.component';
-import { PorfolioComponent } from './components/portfolio/portfolio.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+import { HttpModule } from '@angular/http';
+
+import { PageNotFoundComponComponent } from './components/pagenotfound/pagenotfound.component';
+
+import { PortfolioService } from './services/portfolio.service';
 
 const routes: Routes = [
   {path: '', component: FanboComponent ,
    children: [
      {path: '', redirectTo: 'home'},
      {path: 'home', component: GalleryComponent},
-     {path: 'portfolio', component: PorfolioComponent}
+     {path: 'portfolio', component: PortfolioComponent,
+      children: [
+        {path: '', component: PageNotFoundComponComponent},
+        {path: ':id', component: PageNotFoundComponComponent}
+      ]
+     },
    ]},
 ];
 
@@ -27,8 +37,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    HttpModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   declarations: [
     HeadbarComponent,
@@ -36,8 +47,12 @@ const routes: Routes = [
     GalleryComponent,
     FootnoteComponent,
     FanboComponent,
-    PorfolioComponent,
-    SidenavbarComponent
+    PortfolioComponent,
+    SidenavbarComponent,
+    PageNotFoundComponComponent
+  ],
+  providers: [
+    PortfolioService
   ],
   exports: [
     FanboComponent

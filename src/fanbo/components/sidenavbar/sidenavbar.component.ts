@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { PortfolioService } from '../../services/portfolio.service';
+
 
 interface NavbarItem {
   name: string,
@@ -13,13 +15,19 @@ interface NavbarItem {
 
 export class SidenavbarComponent implements OnInit {
 
-  public items: NavbarItem[] = [
-    {name: 'Search Plus', href:'search-plus'},
-    {name: 'CUMTD Bus Assistant', href: 'bus-assistant'},
-    {name: '2D Physics Engine', href: 'physics-engine'}
-  ]
+  public items: NavbarItem[] = [];
 
-  constructor() {}
+  constructor(private portfolioService: PortfolioService) {
+  }
   ngOnInit() {
+    this.portfolioService.getPortfolio('fanbo').subscribe(
+      portfolioArray => {
+        this.items = portfolioArray.map(portfolio => {
+          return {name: portfolio.name, href: portfolio.id}
+        });
+      },
+      error => console.log(error),
+      () => console.log('finished')
+    );
   }
 }

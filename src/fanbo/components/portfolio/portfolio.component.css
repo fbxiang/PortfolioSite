@@ -1,3 +1,15 @@
 .portfolio {
   display: flex;
+  flex-direction: row;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.left {
+  margin: 10px;
+}
+
+.main {
+  flex-grow: 1;
+  margin: 10px;
 }
