@@ -3,32 +3,25 @@ import * as bodyparser from 'body-parser';
 
 import * as http from 'http';
 
+import * as fs from 'fs';
+import * as async from 'async';
+
 const app = express();
+
+import { portfolioPageRouter, portfolioRouter } from './routers/portfolio';
 
 // user body parser
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
-//server routing
+app.use(express.static(__dirname + '/static'));
 
-app.get('/portfolio', (req, res, next) => {
-  console.log(req);
-  res.send([{
-    name: 'Search Plus',
-    id: 'search-plus'
-  },{
-    name: 'CUMTD Bus Assistant',
-    id: 'cumtd'
-  },{
-    name: '2D Physics Engine',
-    id: 'physics'
-  }]);
-})
+app.use(portfolioPageRouter);
+app.use(portfolioRouter);
 
 app.get('/*', (req, res, next) => {
   res.send('Hello World');
 })
-
 
 // create server
 const port = process.env.PORT ? process.env.PORT : 3000;

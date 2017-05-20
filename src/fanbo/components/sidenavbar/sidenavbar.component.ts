@@ -20,14 +20,14 @@ export class SidenavbarComponent implements OnInit {
   constructor(private portfolioService: PortfolioService) {
   }
   ngOnInit() {
-    this.portfolioService.getPortfolio('fanbo').subscribe(
+    this.portfolioService.getPortfolio('fanboxiang').subscribe(
       portfolioArray => {
         this.items = portfolioArray.map(portfolio => {
           return {name: portfolio.name, href: portfolio.id}
         });
       },
       error => console.log(error),
-      () => console.log('finished')
+      () => {}
     );
   }
 }

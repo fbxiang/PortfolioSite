@@ -10,6 +10,7 @@ import { FootnoteComponent } from './components/footnote/footnote.component';
 import { FanboComponent } from './components/fanbo/fanbo.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
+import { PortfolioPageComponent } from './components/portfoliopage/portfoliopage.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
@@ -27,7 +28,7 @@ const routes: Routes = [
      {path: 'portfolio', component: PortfolioComponent,
       children: [
         {path: '', component: PageNotFoundComponComponent},
-        {path: ':id', component: PageNotFoundComponComponent}
+        {path: ':id', component: PortfolioPageComponent}
       ]
      },
    ]},
@@ -49,7 +50,8 @@ const routes: Routes = [
     FanboComponent,
     PortfolioComponent,
     SidenavbarComponent,
-    PageNotFoundComponComponent
+    PageNotFoundComponComponent,
+    PortfolioPageComponent
   ],
   providers: [
     PortfolioService
