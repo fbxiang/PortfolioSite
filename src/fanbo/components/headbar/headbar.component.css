@@ -1,7 +1,7 @@
 .headbar {
   background-color: black;
   background: url('../../../assets/bg_header.png') no-repeat;
-  background-size: 100%;
+  background-size: cover;
   color: white;
   font-family: Open sans, Helvetica, Arila;
   padding-top: 40px;

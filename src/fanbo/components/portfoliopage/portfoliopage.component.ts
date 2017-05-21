@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { PortfolioService } from '../../services/portfolio.service';
 
-import { markdown } from 'markdown';
-
 
 @Component({
   selector: 'portfoliopage',
@@ -11,22 +9,31 @@ import { markdown } from 'markdown';
   styleUrls: ['./portfoliopage.component.css']
 })
 export class PortfolioPageComponent implements OnInit {
-  private pageContent: string;
+  private blocks: string[];
+  private id: string;
+
   constructor(private router: Router,
               private route: ActivatedRoute,
               private portfolioService: PortfolioService) {}
+
+  onChildSubmitted(text, idx) {
+    this.portfolioService.changePortfolioPage('fanboxiang', this.id, idx, text).subscribe(
+      response => {console.log(response)},
+      err => {console.log('error', err)},
+      () => {});
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       console.log(params['id']);
+      this.id = params['id'];
       this.portfolioService.getPortfolioPage('fanboxiang', params['id']).subscribe(
-        pageContent => {
-          this.pageContent = markdown.toHTML((<string[]>pageContent).join('\n'));
+        blocks => {
+          this.blocks = blocks as string[];
         },
         error => {
           console.log(error);
-          this.pageContent =
-`<h1>${error.status} ${error.statusText}</h1>
-<p>${error._body}</p>`
+          this.blocks = [];
         },
         () => {}
       )

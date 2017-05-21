@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 import { HeadbarComponent } from './components/headbar/headbar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -11,12 +12,16 @@ import { FanboComponent } from './components/fanbo/fanbo.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 import { PortfolioPageComponent } from './components/portfoliopage/portfoliopage.component';
+import { AddPageComponent } from './components/addpage/addpage.component';
+import { PortfolioBlockComponent } from './components/portfolioblock/portfolioblock.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 
 import { PageNotFoundComponComponent } from './components/pagenotfound/pagenotfound.component';
+
+import { MathJaxDirective } from './directives/mathjax.directive';
 
 import { PortfolioService } from './services/portfolio.service';
 
@@ -41,6 +46,10 @@ const routes: Routes = [
     HttpModule,
     MaterialModule,
     FlexLayoutModule,
+    FormsModule
+  ],
+  bootstrap: [
+    AddPageComponent
   ],
   declarations: [
     HeadbarComponent,
@@ -51,7 +60,10 @@ const routes: Routes = [
     PortfolioComponent,
     SidenavbarComponent,
     PageNotFoundComponComponent,
-    PortfolioPageComponent
+    PortfolioPageComponent,
+    AddPageComponent,
+    PortfolioBlockComponent,
+    MathJaxDirective
   ],
   providers: [
     PortfolioService

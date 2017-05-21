@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
-
+import { MdDialog } from '@angular/material';
+import { AddPageComponent } from '../addpage/addpage.component';
 
 interface NavbarItem {
   name: string,
@@ -17,8 +18,16 @@ export class SidenavbarComponent implements OnInit {
 
   public items: NavbarItem[] = [];
 
-  constructor(private portfolioService: PortfolioService) {
+  constructor(private portfolioService: PortfolioService,
+              private dialog: MdDialog) {
   }
+
+  openAddPageDialog() {
+    this.dialog.open(AddPageComponent).afterClosed().subscribe(() => {
+      this.ngOnInit();
+    })
+  }
+
   ngOnInit() {
     this.portfolioService.getPortfolio('fanboxiang').subscribe(
       portfolioArray => {

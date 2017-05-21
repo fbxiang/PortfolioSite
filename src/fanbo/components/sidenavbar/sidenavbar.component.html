@@ -4,5 +4,6 @@
     <button *ngFor="let item of items" md-button
             routerLink="{{item.href}}">{{item.name}}
     </button>
+    <button class="button-add" (click)="openAddPageDialog()" md-icon-button>+</button>
   </div>
 </div>

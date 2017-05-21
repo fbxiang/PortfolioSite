@@ -2,5 +2,18 @@
   "/portfolio" : {
     "target": "http://localhost:3000",
     "secure": false
+  },
+  "/portfolio-page": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/add-portfolio-page" : {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/change-portfolio-page" : {
+    "target": "http://localhost:3000",
+    "secure": false
   }
+
 }

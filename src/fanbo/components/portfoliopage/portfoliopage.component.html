@@ -1,2 +1,7 @@
-<div [innerHTML]="pageContent">
+<div>
+  <portfolio-block
+    *ngFor="let block of blocks; let i = index"
+      [md]="block"
+      (onSubmitted)="onChildSubmitted($event, i)"
+    ></portfolio-block>
 </div>

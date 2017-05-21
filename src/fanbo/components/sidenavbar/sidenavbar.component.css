@@ -22,3 +22,9 @@
 .container > button:hover {
   opacity: 1;
 }
+
+.container button.button-add {
+  text-align: center;
+  background-color: lightgray;
+  margin-left: 10px;
+}

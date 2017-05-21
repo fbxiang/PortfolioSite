@@ -25,4 +25,20 @@ export class PortfolioService {
         return response.json()
       });
   }
+
+  addPortfolioPage(name: string, id: string, pageName: string) {
+    return this.http
+      .post(`/add-portfolio-page`, {name, id, pageName})
+      .map(response => {
+        return response;
+      })
+  }
+
+  changePortfolioPage(name:string, id: string, index: string, content: string) {
+    return this.http
+      .post(`/change-portfolio-page`, {name, id, index, content})
+      .map(response => {
+        return response;
+      })
+  }
 }
