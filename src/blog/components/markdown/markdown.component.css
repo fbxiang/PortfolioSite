@@ -1,0 +1,23 @@
+.markdown {
+  display: flex;
+}
+
+.textarea-container {
+  width: 50%;
+}
+
+textarea {
+  width: 98%;
+  margin: auto;
+  height: 100%;
+}
+
+.display-container {
+  padding: 0 20px;
+  background: white;
+  width: 100%;
+}
+
+.display-container.edit {
+  width: 50%;
+}

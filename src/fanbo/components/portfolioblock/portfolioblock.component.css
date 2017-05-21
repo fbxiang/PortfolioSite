@@ -28,3 +28,7 @@ textarea:focus {
     background: none repeat scroll 0 0 #eeeeee;
     outline-width: 0;
 }
+
+:host >>> img {
+  width: 100%;
+}

@@ -1,0 +1,12 @@
+<div class="blogpage">
+  <div [ngClass]="{'container': true, 'edit': editing}">
+    <div class="panel">
+      <button *ngIf="!editing" md-button (click)="startEdit()">Edit Page</button>
+      <button *ngIf="editing" md-button (click)="finishEdit()">Apply</button>
+      <button *ngIf="!editing" md-button>Delete Page</button>
+    </div>
+    <div class="markdown-area">
+      <markdown [editing]="editing" [(md)]="md"></markdown>
+    </div>
+  </div>
+</div>

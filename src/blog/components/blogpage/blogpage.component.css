@@ -1,0 +1,23 @@
+.blogpage {
+  margin: 10px;
+}
+
+.container {
+  max-width: 950px;
+  margin: auto;
+  border-radius: 1px;
+}
+
+.container.edit {
+  max-width: 100%;
+}
+
+.panel {
+  display: flex;
+}
+
+.panel button {
+  max-width: 33%;
+  width: 120px;
+  background-color: #dddddd;
+}

@@ -1,0 +1,8 @@
+<div class="markdown">
+  <div class="textarea-container" *ngIf="editing">
+    <textarea md-input class="edit" [(ngModel)]="md" ></textarea>
+  </div>
+  <div class="display-container" [ngClass]="{'edit': editing}">
+    <div class="display" [MathJax]="formattedText()" ></div>
+  </div>
+</div>

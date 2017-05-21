@@ -12,8 +12,9 @@ import { AppComponent } from './components/app/app.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', redirectTo: "fanboxiang", pathMatch: 'full'},
-  {path: 'fanboxiang', loadChildren: 'fanbo/fanbo.module#FanboModule'}
+  {path: '', redirectTo: "blog", pathMatch: 'full'},
+  {path: 'site/fanboxiang', loadChildren: 'fanbo/fanbo.module#FanboModule'},
+  {path: 'blog', loadChildren: 'blog/blog.module#BlogModule'}
 ]
 
 @NgModule({
