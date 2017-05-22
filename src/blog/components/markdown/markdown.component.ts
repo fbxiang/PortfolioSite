@@ -5,6 +5,8 @@ import * as mk from 'markdown-it-mathjax';
 
 const markdown = MarkdownIt().use(mk());
 
+import  'codemirror/mode/markdown/markdown';
+
 @Component({
   selector: 'markdown',
   templateUrl: './markdown.component.html',
@@ -17,12 +19,15 @@ export class MarkdownComponent implements OnInit {
 
   @Input() editing;
 
+  codemirrorConfig = {lineNumbers: false, mode: 'markdown'};
+
   formattedText() {
     return markdown.render(this.md);
   }
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

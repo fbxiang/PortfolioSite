@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
+import { CodemirrorModule } from 'ng2-codemirror';
 
 import { MathJaxDirective } from './directives/mathjax.directive';
 
 import { BlogPageComponent } from './components/blogpage/blogpage.component';
 import { MarkdownComponent } from './components/markdown/markdown.component';
+
 
 const routes: Routes = [
   {path: '', component: BlogPageComponent}
@@ -21,7 +23,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MaterialModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    CodemirrorModule
   ],
   declarations: [
     MathJaxDirective,

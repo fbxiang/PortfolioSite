@@ -6,6 +6,9 @@
   max-width: 950px;
   margin: auto;
   border-radius: 1px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .container.edit {
@@ -20,4 +23,8 @@
   max-width: 33%;
   width: 120px;
   background-color: #dddddd;
+}
+
+.markdown-area {
+  flex-grow: 1;
 }

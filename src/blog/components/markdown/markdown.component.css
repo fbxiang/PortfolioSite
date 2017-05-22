@@ -1,12 +1,14 @@
 .markdown {
   display: flex;
+  min-height: 90vh;
 }
 
 .textarea-container {
   width: 50%;
+  height: auto;
 }
 
-textarea {
+.editor {
   width: 98%;
   margin: auto;
   height: 100%;
@@ -16,8 +18,13 @@ textarea {
   padding: 0 20px;
   background: white;
   width: 100%;
+  height: auto;
 }
 
 .display-container.edit {
   width: 50%;
+}
+
+:host >>> .CodeMirror {
+  height: 100%
 }

@@ -28,6 +28,7 @@
     "async": "^2.4.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
+    "codemirror": "^5.25.2",
     "core-js": "^2.4.1",
     "express": "^4.15.2",
     "font-awesome": "^4.7.0",
@@ -36,6 +37,7 @@
     "markdown-it-katex": "^2.0.3",
     "markdown-it-mathjax": "^2.0.0",
     "mathjax": "^2.7.1",
+    "ng2-codemirror": "^1.1.2",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.10"
   },
@@ -46,6 +48,7 @@
     "@types/async": "^2.0.40",
     "@types/bluebird": "^3.5.4",
     "@types/body-parser": "^1.16.3",
+    "@types/codemirror": "0.0.40",
     "@types/express": "^4.0.35",
     "@types/jasmine": "2.5.38",
     "@types/markdown-it": "0.0.2",
