@@ -21,10 +21,14 @@
       "styles": [
         "styles.css",
         "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-        "../node_modules/font-awesome/css/font-awesome.min.css"
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/codemirror/lib/codemirror.css"
       ],
       "scripts": [
-        "../node_modules/hammerjs/hammer.min.js"
+        "../node_modules/hammerjs/hammer.min.js",
+        "../node_modules/mathjax/MathJax.js",
+        "../node_modules/codemirror/lib/codemirror.js",
+        "../node_modules/codemirror/mode/markdown/markdown.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

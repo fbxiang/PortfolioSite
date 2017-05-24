@@ -12,6 +12,7 @@ import { MathJaxDirective } from './directives/mathjax.directive';
 import { BlogPageComponent } from './components/blogpage/blogpage.component';
 import { MarkdownComponent } from './components/markdown/markdown.component';
 
+import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 const routes: Routes = [
   {path: '', component: BlogPageComponent}
@@ -24,12 +25,16 @@ const routes: Routes = [
     MaterialModule,
     HttpModule,
     FormsModule,
-    CodemirrorModule
+    CodemirrorModule,
+    HighlightJsModule
   ],
   declarations: [
     MathJaxDirective,
     BlogPageComponent,
     MarkdownComponent
+  ],
+  providers: [
+    HighlightJsService
   ],
   exports: [
     BlogPageComponent

@@ -25,6 +25,14 @@
   width: 50%;
 }
 
+:host >>> code {
+  border-radius: 5px;
+}
+
+:host >>> .CodeMirror-code {
+  font-family: 'Inconsolata', monospace;
+}
+
 :host >>> .CodeMirror {
   height: 100%
 }

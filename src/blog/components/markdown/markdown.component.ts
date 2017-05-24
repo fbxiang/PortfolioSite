@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ElementRef } from '@angular/core';
 
 import * as MarkdownIt from 'markdown-it';
 import * as mk from 'markdown-it-mathjax';
+
+import { HighlightJsService } from 'angular2-highlight-js';
 
 const markdown = MarkdownIt().use(mk());
 
@@ -12,7 +14,7 @@ import  'codemirror/mode/markdown/markdown';
   templateUrl: './markdown.component.html',
   styleUrls: ['./markdown.component.css']
 })
-export class MarkdownComponent implements OnInit {
+export class MarkdownComponent implements OnInit, AfterViewInit {
 
   @Input() md: string;
   @Output() mdChange = new EventEmitter<string>();
@@ -25,9 +27,16 @@ export class MarkdownComponent implements OnInit {
     return markdown.render(this.md);
   }
 
-  constructor() {}
+  constructor(private highlightService: HighlightJsService,
+              private el: ElementRef) {}
 
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    let codeElements = this.el.nativeElement.getElementsByTagName('code');
+    for (let i = 0; i < codeElements.length; i++){
+      this.highlightService.highlight(codeElements[i]);
+    }
+  }
 }

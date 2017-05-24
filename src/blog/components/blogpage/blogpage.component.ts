@@ -24,6 +24,9 @@ export class BlogPageComponent implements OnInit {
 ## subheader
 * list
 $\\frac{\\alpha}{\\beta}$
+\`\`\`javascript
+for (var i = 0; i < 100; i++) {}
+\`\`\`
 `
 
   constructor() {}
