@@ -1,11 +1,14 @@
 .markdown {
+  display: block;
+}
+
+.markdown.edit {
   display: flex;
   height: 90vh;
 }
 
 .textarea-container {
   width: 50%;
-  height: auto;
 }
 
 .editor {
@@ -15,18 +18,34 @@
 }
 
 .display-container {
-  padding: 0 20px;
   background: white;
   width: 100%;
-  height: auto;
+  min-height: 90vh;
+  padding: 10px 0;
 }
 
 .display-container.edit {
   width: 50%;
+  overflow-y: scroll;
+}
+
+.display-container .display {
+  width: 90%;
+  margin: auto;
 }
 
 :host >>> code {
   border-radius: 5px;
+  display: inline;
+  background-color: lightgray;
+  padding: 3px 6px;
+  margin: 0 10px;
+  border: solid gray 1px;
+}
+
+:host >>> pre > code {
+  border-radius: 5px;
+  display: block;
 }
 
 :host >>> .CodeMirror-code {
@@ -59,4 +78,8 @@
 
 :host >>> .cm-comment {
   color: gray;
+}
+
+:host >>> a {
+  color: #2A5DB0;
 }

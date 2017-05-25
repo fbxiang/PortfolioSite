@@ -17,7 +17,8 @@ export class MathJaxDirective {
 
       let codeElements = this.el.nativeElement.getElementsByTagName('code');
       for (let i = 0; i < codeElements.length; i++){
-        this.highlightService.highlight(codeElements[i]);
+        if (codeElements[i].className)
+          this.highlightService.highlight(codeElements[i]);
       }
 
       MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.el.nativeElement]);

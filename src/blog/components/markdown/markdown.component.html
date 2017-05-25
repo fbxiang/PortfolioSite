@@ -1,4 +1,4 @@
-<div class="markdown">
+<div class="markdown" [ngClass]="{'edit': editing}">
   <div class="textarea-container" *ngIf="editing">
     <codemirror [(ngModel)]="md" [config]="codemirrorConfig" ></codemirror>
   </div>
