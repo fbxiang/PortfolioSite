@@ -1,8 +1,9 @@
-.portfolio {
+.main {
   display: flex;
   flex-direction: row;
   max-width: 1500px;
   margin: auto;
+  min-height: 70vh;
 }
 
 .left {
@@ -11,5 +12,19 @@
 
 .main {
   flex-grow: 1;
-  margin: 10px;
+  margin: auto;
+}
+
+.portfolio-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .portfolio-nav {
+    display: block;
+  }
+
+  .navbar-container {
+    display: none;
+  }
 }

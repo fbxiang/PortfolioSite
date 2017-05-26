@@ -1,6 +1,21 @@
 <div class="portfolio">
-  <sidenavbar class="left"></sidenavbar>
-  <div class="main">
-    <router-outlet></router-outlet>
-  </div>
+  <md-sidenav-container>
+    <md-sidenav #drawer>
+      <sidenavbar></sidenavbar>
+    </md-sidenav>
+
+    <div class="portfolio-nav">
+      <portfolio-navbar
+          (nav)="drawer.open()"
+          (home)="navigateHome()"></portfolio-navbar>
+    </div>
+    <div class="main">
+      <div class="navbar-container">
+        <sidenavbar class="left"></sidenavbar>
+      </div>
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </md-sidenav-container>
 </div>

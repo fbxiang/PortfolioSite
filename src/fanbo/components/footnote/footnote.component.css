@@ -4,8 +4,9 @@
 }
 
 .container {
-  max-width: 1000px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .title {
@@ -41,4 +42,31 @@
   justify-content: flex-end;
   font-size: 0.7em;
   color: #888888;
+}
+
+@media only screen and (max-width: 800px) {
+
+  .super-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .container > div {
+    margin: 5px 10px;
+  }
+
+  .copyright {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+
+  .copyright p {
+    margin: 0;
+  }
 }

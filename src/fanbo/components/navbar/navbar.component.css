@@ -21,3 +21,14 @@
 .container > button:hover {
   opacity: 1;
 }
+
+@media only screen and (max-width: 800px) {
+  .navbar {
+    background-color: rgba(100, 100, 100, 0.2);
+  }
+
+
+  .container {
+    flex-direction: column;
+  }
+}

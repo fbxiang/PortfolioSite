@@ -1,5 +1,6 @@
 .markdown {
   display: block;
+  width: 100%;
 }
 
 .markdown.edit {
@@ -8,7 +9,8 @@
 }
 
 .textarea-container {
-  width: 50%;
+  flex: 1 1 0;
+  width: 0;
 }
 
 .editor {
@@ -25,13 +27,22 @@
 }
 
 .display-container.edit {
-  width: 50%;
+  flex: 1 1 0;
+  width: 0;
   overflow-y: scroll;
 }
+
+@media only screen and (max-width: 800px) {
+  .display-container.edit {
+    display: none;
+  }
+}
+
 
 .display-container .display {
   width: 90%;
   margin: auto;
+  word-wrap: break-word;
 }
 
 :host >>> code {

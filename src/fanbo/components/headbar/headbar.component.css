@@ -1,11 +1,8 @@
 .headbar {
-  background-color: black;
-  background: url('../../../assets/bg_header.png') no-repeat;
-  background-size: cover;
   color: white;
   font-family: Open sans, Helvetica, Arila;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 5vh;
+  padding-bottom: 2vh;
   width: 100%;
 }
 
@@ -62,4 +59,19 @@
   font-size: 3.5em;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .name {
+    font-size: 3em;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .contact {
+    display: none;
+  }
 }

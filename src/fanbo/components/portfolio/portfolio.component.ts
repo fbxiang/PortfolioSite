@@ -8,6 +8,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class PortfolioComponent implements OnInit {
 
+  navigateHome() {
+    this.router.navigate(['../home'], {relativeTo: this.route});
+  }
+
   private pageNotFound: boolean;
   constructor(private router: Router,
               private route: ActivatedRoute) {

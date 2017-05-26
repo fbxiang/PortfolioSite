@@ -4,6 +4,7 @@
 
 .container {
   max-width: 950px;
+  width: 95vw;
   margin: auto;
   border-radius: 1px;
   height: 100%;

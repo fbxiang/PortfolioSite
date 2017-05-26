@@ -14,6 +14,7 @@ import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.componen
 import { PortfolioPageComponent } from './components/portfoliopage/portfoliopage.component';
 import { AddPageComponent } from './components/addpage/addpage.component';
 import { PortfolioBlockComponent } from './components/portfolioblock/portfolioblock.component';
+import { PortfolioNavbarComponent } from './components/portfolionavbar/portfolionavbar.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
@@ -61,6 +62,7 @@ const routes: Routes = [
     SidenavbarComponent,
     PageNotFoundComponComponent,
     PortfolioPageComponent,
+    PortfolioNavbarComponent,
     AddPageComponent,
     PortfolioBlockComponent,
     MathJaxDirective

@@ -1,0 +1,26 @@
+.portfolionavbar {
+  display: flex;
+  flex-direction: row;
+  background: #333333;
+  color: #cccccc;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+.left {
+  display: flex;
+}
+
+.name {
+  font-size: 1.5em;
+  margin: auto 1vw;
+}
+
+md-sidenav-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+}

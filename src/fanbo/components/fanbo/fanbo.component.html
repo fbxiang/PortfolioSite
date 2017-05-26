@@ -1,6 +1,8 @@
 <div class="fanbo">
-  <headbar></headbar>
-  <navbar></navbar>
+  <div class="head-container" [ngClass]="{collapsed: hideHeadbar}">
+    <headbar></headbar>
+     <navbar></navbar>
+  </div>
   <router-outlet></router-outlet>
   <footnote></footnote>
 </div>
