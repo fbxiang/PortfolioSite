@@ -1,10 +1,19 @@
 .portfolioblock {
   display: flex;
   flex-direction: row;
+  max-width: 100vw;
 }
 
 .main {
-  flex-grow: 1;
+  overflow-x: scroll;
+  max-width: 90%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .panel {
+    display: none;
+  }
 }
 
 textarea {

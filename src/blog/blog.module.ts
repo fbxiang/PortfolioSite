@@ -7,15 +7,21 @@ import { MaterialModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { CodemirrorModule } from 'ng2-codemirror';
 
-import { MathJaxDirective } from './directives/mathjax.directive';
+import { MathCodeDirective } from './directives/mathcode.directive';
 
 import { BlogPageComponent } from './components/blogpage/blogpage.component';
 import { MarkdownComponent } from './components/markdown/markdown.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 const routes: Routes = [
-  {path: '', component: BlogPageComponent}
+  {path: '', component: BlogComponent,
+   children: [
+     {path: '', redirectTo: 'page'},
+     {path: 'page', component: BlogPageComponent},
+     {path: 'about', component: BlogPageComponent}
+   ]},
 ];
 
 @NgModule({
@@ -29,9 +35,10 @@ const routes: Routes = [
     HighlightJsModule
   ],
   declarations: [
-    MathJaxDirective,
+    MathCodeDirective,
     BlogPageComponent,
-    MarkdownComponent
+    MarkdownComponent,
+    BlogComponent
   ],
   providers: [
     HighlightJsService

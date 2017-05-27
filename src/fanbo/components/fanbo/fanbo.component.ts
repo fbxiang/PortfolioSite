@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'fanbo',
@@ -8,9 +8,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FanboComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   hideHeadbar: boolean;
+
+  onRouterActivate() {
+    if (this.router.url.startsWith('/site/fanboxiang/portfolio')) {
+      this.hideHeadbar = true;
+    }
+    else {
+      this.hideHeadbar = false;
+    }
+  }
 
   ngOnInit() {
   }

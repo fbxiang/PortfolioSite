@@ -3,6 +3,6 @@
     <codemirror [(ngModel)]="md" [config]="codemirrorConfig" ></codemirror>
   </div>
   <div class="display-container" [ngClass]="{'edit': editing}">
-    <div class="display" [MathJax]="formattedText()" ></div>
+    <div class="display" [MathCode]="formattedText()" [CompileMath]="true" ></div>
   </div>
 </div>

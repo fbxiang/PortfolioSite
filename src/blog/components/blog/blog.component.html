@@ -1,0 +1,33 @@
+<div class="blogheader" >
+  <div class="title">Blogs Posts Tutorials</div>
+  <div class="subtitle">We Make Trivial Facts Involved</div>
+  <nav md-tab-nav-bar>
+    <a md-tab-link
+       routerLink="page" #page="routerLinkActive"
+       routerLinkActive
+       [active]="page.isActive">
+      Blog
+    </a>
+    <a md-tab-link
+       routerLink="about" #about="routerLinkActive"
+       routerLinkActive
+       [active]="about.isActive">
+      About
+    </a>
+  </nav>
+</div>
+
+<div class="main">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="footnote">
+  <div class="footnote-column">
+    <a>Home</a>
+    <a>About</a>
+    <a>Contact</a>
+  </div>
+
+  <div class="footnote-column">
+  </div>
+</div>
