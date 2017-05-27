@@ -18,6 +18,7 @@
 
 .panel {
   display: flex;
+  justify-content: flex-end;
 }
 
 .panel button {

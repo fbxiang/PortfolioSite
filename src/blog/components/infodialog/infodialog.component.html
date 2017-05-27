@@ -1,0 +1,9 @@
+<div class="infodialog">
+  <form nonvalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <md-input-container *ngFor="let field of fields">
+      <input mdInput [placeholder]="field.name" [required]="field.required" [name]="field.name" ngModel>
+      <md-error *ngIf="field.required">This field is required</md-error>
+    </md-input-container>
+    <button md-button type="submit">Submit</button>
+  </form>
+</div>

@@ -12,7 +12,7 @@ import { MathCodeDirective } from './directives/mathcode.directive';
 import { BlogPageComponent } from './components/blogpage/blogpage.component';
 import { MarkdownComponent } from './components/markdown/markdown.component';
 import { BlogComponent } from './components/blog/blog.component';
-
+import { InfoDialogComponent } from './components/infodialog/infodialog.component';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 const routes: Routes = [
@@ -38,10 +38,14 @@ const routes: Routes = [
     MathCodeDirective,
     BlogPageComponent,
     MarkdownComponent,
-    BlogComponent
+    BlogComponent,
+    InfoDialogComponent
   ],
   providers: [
     HighlightJsService
+  ],
+  bootstrap: [
+    InfoDialogComponent
   ],
   exports: [
     BlogPageComponent

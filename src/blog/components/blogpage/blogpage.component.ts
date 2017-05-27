@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MdDialog } from '@angular/material';
+import { InfoDialogComponent } from '../infodialog/infodialog.component'
 
 @Component({
   selector: 'blog-page',
@@ -18,6 +19,20 @@ export class BlogPageComponent implements OnInit {
     this.editing = false;
   }
 
+  newPage() {
+    const dialog = this.dialog.open(InfoDialogComponent);
+    dialog.componentInstance.fields = [
+      {name: 'Page Title', required: true},
+      {name: 'Author', required: true},
+      {name: 'description', required: false}
+    ]
+    dialog.afterClosed().subscribe(res => {
+      if (res) {
+        // FIXME: Create New Page
+      }
+    })
+  }
+
   public md =
 `
 # header
@@ -29,6 +44,6 @@ for (var i = 0; i < 100; i++) {}
 \`\`\`
 `
 
-  constructor() {}
+  constructor(private dialog: MdDialog) {}
   ngOnInit() {}
 }
