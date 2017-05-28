@@ -1,6 +1,6 @@
 <div class="markdown" [ngClass]="{'edit': editing}">
   <div class="textarea-container" *ngIf="editing">
-    <codemirror [(ngModel)]="md" [config]="codemirrorConfig" ></codemirror>
+    <codemirror [(ngModel)]="md" [config]="codemirrorConfig" (change)="onChange($event)" ></codemirror>
   </div>
   <div class="display-container" [ngClass]="{'edit': editing}">
     <div class="display" [MathCode]="formattedText()" [CompileMath]="true" ></div>

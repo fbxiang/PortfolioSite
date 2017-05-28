@@ -3,11 +3,11 @@
     <button *ngIf="!editing" md-button (click)="newPage()">New Page</button>
     <button *ngIf="!editing" md-button (click)="startEdit()">Edit Page</button>
     <button *ngIf="editing" md-button (click)="finishEdit()">Apply</button>
-    <button *ngIf="!editing" md-button>Delete Page</button>
+    <button *ngIf="!editing" md-button (click)="deletePage()">Delete Page</button>
   </div>
   <div [ngClass]="{'container': true, 'edit': editing}">
 
-    <div class="markdown-area">
+    <div *ngIf="md || md === ''" class="markdown-area">
       <markdown [editing]="editing" [(md)]="md"></markdown>
     </div>
   </div>

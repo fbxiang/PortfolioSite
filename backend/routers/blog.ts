@@ -4,16 +4,25 @@ import * as express from 'express';
 export const blogPageRouter = express.Router();
 
 blogPageRouter.get('/blog/page', async (req, res, next) => {
-  let author = req.params['author'];
-  let title = req.params['title'];
+  let author = req.query['author'];
+  let title = req.query['title'];
   try {
     let document = await BlogPageModel.findOne({author, title});
-    res.send(document);
+    if (document)
+      res.send(document);
+    else {
+      res.status(404).send("Blog page does not exist");
+    }
   }
   catch (err) {
-    res.status(404).send("Blog page does not exist");
+    res.status(404).send("Blog page access failed");
   }
 })
+
+const defaultBlogPageBody =`
+# New Post
+There are nothing here yet.
+`
 
 async function createNewBlogPage(author, title, description) {
   let page = await BlogPageModel.findOne({title, author});
@@ -24,9 +33,11 @@ async function createNewBlogPage(author, title, description) {
     newBlogPage.description = description;
     newBlogPage.author = author;
     newBlogPage.title = title;
+    newBlogPage.body = defaultBlogPageBody;
     return await newBlogPage.save();
   }
   catch (err) {
+    console.log('[create blog page]', err);
     throw {status: 400, message: 'cannot create page'};
   }
 }
@@ -37,10 +48,11 @@ blogPageRouter.post('/blog/page/add', async (req, res, next) => {
   let description = req.body['description'];
 
   try {
-    createNewBlogPage(author, title, description);
+    await createNewBlogPage(author, title, description);
     res.send('success');
   }
   catch (err) {
+    console.log('[/blog/page/add]', err);
     res.status(err.status).send(err.message);
   }
 })
@@ -55,5 +67,24 @@ blogPageRouter.post('/blog/page/delete', async (req, res, next) => {
   }
   catch (err) {
     res.status(400).send('removing failed');
+  }
+})
+
+blogPageRouter.post('/blog/page/edit', async(req, res, next) => {
+  let author = req.body['author'];
+  let title = req.body['title'];
+  let body = req.body['body'];
+  try {
+    let document = <BlogPage>await BlogPageModel.findOne({title, author});
+    if (!document) {
+      return res.status(400).send('page does not exist');
+    }
+    document.body = body;
+    console.log(body);
+    await document.save()
+    res.send('success');
+  }
+  catch(err) {
+    res.status(400).send('editing failed');
   }
 })

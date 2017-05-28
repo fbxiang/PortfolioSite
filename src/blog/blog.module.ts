@@ -15,11 +15,14 @@ import { BlogComponent } from './components/blog/blog.component';
 import { InfoDialogComponent } from './components/infodialog/infodialog.component';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
+import { BlogService } from './services/blog.service';
+
 const routes: Routes = [
   {path: '', component: BlogComponent,
    children: [
      {path: '', redirectTo: 'page'},
      {path: 'page', component: BlogPageComponent},
+     {path: 'page/:author/:title', component: BlogPageComponent},
      {path: 'about', component: BlogPageComponent}
    ]},
 ];
@@ -31,8 +34,7 @@ const routes: Routes = [
     MaterialModule,
     HttpModule,
     FormsModule,
-    CodemirrorModule,
-    HighlightJsModule
+    CodemirrorModule
   ],
   declarations: [
     MathCodeDirective,
@@ -42,7 +44,8 @@ const routes: Routes = [
     InfoDialogComponent
   ],
   providers: [
-    HighlightJsService
+    HighlightJsService,
+    BlogService
   ],
   bootstrap: [
     InfoDialogComponent

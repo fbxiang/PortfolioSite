@@ -19,7 +19,7 @@ export class MathCodeDirective {
 
     let codeElements = this.el.nativeElement.getElementsByTagName('code');
     for (let i = 0; i < codeElements.length; i++){
-      if (codeElements[i].className)
+      if (codeElements[i].className.includes('language'))
         this.highlightService.highlight(codeElements[i]);
     }
 

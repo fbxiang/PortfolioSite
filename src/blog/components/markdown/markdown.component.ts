@@ -21,6 +21,10 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
 
   @Input() editing;
 
+  onChange() {
+    this.mdChange.emit(this.md);
+  }
+
   codemirrorConfig = {lineNumbers: false, mode: 'markdown', lineWrapping: true};
 
   formattedText() {

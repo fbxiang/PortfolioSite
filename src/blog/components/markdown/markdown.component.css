@@ -47,18 +47,20 @@
   word-wrap: break-word;
 }
 
-:host >>> code {
+:host >>> *:not(pre) > code {
   border-radius: 5px;
   display: inline;
   background-color: lightgray;
   padding: 3px 6px;
-  margin: 0 10px;
+  margin: 0 5px;
   border: solid gray 1px;
+  line-height: 200%;
 }
 
 :host >>> pre > code {
   border-radius: 5px;
   display: block;
+  padding: 10px 10px 0 10px;
 }
 
 :host >>> .CodeMirror-code {

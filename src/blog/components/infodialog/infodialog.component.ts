@@ -3,6 +3,7 @@ import { MdDialogRef } from '@angular/material';
 
 export interface InfoDialogField {
   name: string,
+  label: string,
   required: boolean
 }
 
