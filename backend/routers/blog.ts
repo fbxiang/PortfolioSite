@@ -88,3 +88,8 @@ blogPageRouter.post('/blog/page/edit', async(req, res, next) => {
     res.status(400).send('editing failed');
   }
 })
+
+blogPageRouter.get('/blog/latest', async (req, res, next) => {
+  let documents = await BlogPageModel.find().sort({date: -1}).limit(10);
+  res.send(documents);
+})

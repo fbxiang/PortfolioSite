@@ -10,6 +10,7 @@ const BlogPageSchema = new Schema({
 })
 
 BlogPageSchema.index({author: 1, title: 1}, {unique: true})
+BlogPageSchema.index({date: -1});
 
 export const BlogPageModel = db.model('blogpages', BlogPageSchema);
 

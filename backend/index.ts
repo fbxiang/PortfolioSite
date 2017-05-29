@@ -11,6 +11,7 @@ const app = express();
 import { portfolioPageRouter, portfolioRouter } from './routers/portfolio';
 
 import { blogPageRouter } from './routers/blog';
+import { userRouter } from './routers/user';
 
 // user body parser
 app.use(bodyparser.json());
@@ -21,6 +22,7 @@ app.use(express.static(__dirname + '/static'));
 app.use(portfolioPageRouter);
 app.use(portfolioRouter);
 app.use('/api', blogPageRouter);
+app.use('/api/user', userRouter)
 
 app.get('/*', (req, res, next) => {
   res.send('Hello World');

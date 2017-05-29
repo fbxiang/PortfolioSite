@@ -1,5 +1,6 @@
 .blogpage {
   background-color: #F5F1ED;
+  padding: 0 0 5vh 0;
 }
 
 .container {
@@ -10,10 +11,30 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .container.edit {
   max-width: 100%;
+}
+
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4em;
+  text-align: center;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.date {
+  color: gray;
+  font-size: 0.8em;
+  margin-left: 5px;
 }
 
 .panel {
@@ -29,5 +50,15 @@
 
 .markdown-area {
   flex-grow: 1;
-  margin: 2vh 0 5vh;
+}
+
+@media only screen and (max-width: 800px) {
+  .title {
+    font-size: 2em;
+  }
+
+  .subtitle {
+    flex-direction: column;
+    align-items: center;
+  }
 }

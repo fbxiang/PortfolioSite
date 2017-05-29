@@ -1,0 +1,11 @@
+<div class="bloglogin">
+  <form nonvalidate #f="ngForm" (ngSubmit)="login(f)">
+    <md-input-container>
+      <input mdInput required placeholder="Username" name="username" ngModel>
+    </md-input-container>
+    <md-input-container>
+      <input type="password" mdInput required placeholder="Password" name="password" ngModel>
+    </md-input-container>
+    <button md-button type="submit">Login</button>
+  </form>
+</div>

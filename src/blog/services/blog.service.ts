@@ -2,14 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-interface BlogPage {
-  title: string,
-  author: string,
-  description: string,
-  body: string,
-  date: string
-}
-
 @Injectable()
 export class BlogService {
 
@@ -34,6 +26,14 @@ export class BlogService {
   getPage(title: string, author: string) {
     return this.http
       .get(`/api/blog/page?title=${title}&author=${author}`)
+      .map(response => {
+        return response.json();
+      })
+  }
+
+  getLatestPages() {
+    return this.http
+      .get('/api/blog/latest')
       .map(response => {
         return response.json();
       })

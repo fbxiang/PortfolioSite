@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog } from '@angular/material';
+import { BlogLoginComponent } from '../bloglogin/bloglogin.component';
 
 @Component({
   selector: 'blog',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class BlogComponent {
-  constructor() {}
-
+  constructor(
+    private dialog: MdDialog
+  ) {}
   ngOnInit() {}
+
+  login() {
+    this.dialog.open(BlogLoginComponent);
+  }
+
 }

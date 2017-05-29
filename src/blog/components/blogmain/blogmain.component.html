@@ -1,0 +1,8 @@
+<div class="blogmain">
+  <div class="panel">
+    <button md-button (click)="newPage()">New Page</button>
+  </div>
+  <div class="clips">
+    <blog-clip *ngFor="let blogPage of blogPages" [blogPage]="blogPage"></blog-clip>
+  </div>
+</div>

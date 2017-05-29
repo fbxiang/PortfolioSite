@@ -1,0 +1,14 @@
+<div class="blogclip">
+  <div class="main">
+    <div class="title">{{blogPage.title}}</div>
+    <div class="subtitle">
+      <span class="author">Author: {{blogPage.author}}</span>
+      <span class="date">{{blogPage.date.substr(0, 10)}}</span>
+    </div>
+    <div class="body" [MathCode]="formatText(blogPage.body)"></div>
+    <div class="mask"></div>
+  </div>
+  <div class="read-more">
+    <a [routerLink]="getLink()">Read More</a>
+  </div>
+</div>

@@ -1,20 +1,23 @@
-<div class="blogheader" >
-  <div class="title">Blogs Posts Tutorials</div>
-  <div class="subtitle">We Make Trivial Facts Involved</div>
-  <nav md-tab-nav-bar>
-    <a md-tab-link
-       routerLink="page" #page="routerLinkActive"
-       routerLinkActive
-       [active]="page.isActive">
-      Blog
-    </a>
-    <a md-tab-link
-       routerLink="about" #about="routerLinkActive"
-       routerLinkActive
-       [active]="about.isActive">
-      About
-    </a>
-  </nav>
+<div class="blogheader">
+  <button md-button class="login" (click)="login()">Login</button>
+  <div class="header-content">
+    <div class="title">Blogs Posts Tutorials</div>
+    <div class="subtitle">We Make Trivial Facts Involved</div>
+    <nav md-tab-nav-bar>
+      <a md-tab-link
+         routerLink="page" #page="routerLinkActive"
+         routerLinkActive
+         [active]="page.isActive">
+        Blog
+      </a>
+      <a md-tab-link
+         routerLink="about" #about="routerLinkActive"
+         routerLinkActive
+         [active]="about.isActive">
+        About
+      </a>
+    </nav>
+  </div>
 </div>
 
 <div class="main">
@@ -23,9 +26,9 @@
 
 <div class="footnote">
   <div class="footnote-column">
-    <a>Home</a>
-    <a>About</a>
-    <a>Contact</a>
+    <a routerLink="page">Home</a>
+    <a routerLink="about">About</a>
+    <a routerLink="contact">Contact</a>
   </div>
 
   <div class="footnote-column">

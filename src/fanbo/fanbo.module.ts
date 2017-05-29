@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 
 import { HeadbarComponent } from './components/headbar/headbar.component';
@@ -46,7 +45,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     HttpModule,
     MaterialModule,
-    FlexLayoutModule,
     FormsModule
   ],
   bootstrap: [

@@ -13,6 +13,7 @@ export class BlogPageComponent implements OnInit {
 
   author: string;
   title: string;
+  date: string;
 
   editing = false;
 
@@ -83,6 +84,7 @@ export class BlogPageComponent implements OnInit {
     this.blogService.getPage(this.title, this.author).subscribe(
       response => {
         this.md = response.body;
+        this.date = response.date.substr(0,10);
       },
       err => {
         console.log(err);

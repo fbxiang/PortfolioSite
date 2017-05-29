@@ -1,16 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald');
-@import url('https://fonts.googleapis.com/css?family=Orbitron:900');
-
 .blogheader {
+  background-color: #CCBF95;
+}
+
+.login {
+  float: right;
+}
+
+.header-content {
   display: flex;
   width: 100%;
   min-height: 22vh;
   margin: 0;
   flex-direction: column;
   align-items: center;
-  background-color: #CCBF95;
   justify-content: flex-end;
   padding-bottom: 3vh;
+}
+
+.login {
+  top: 0;
+  right: 0;
 }
 
 .title {
@@ -43,7 +52,22 @@
   font-weight: bold;
 }
 
+.footnote a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footnote a:hover {
+  opacity: 1;
+}
+
 @media only screen and (max-width: 800px) {
+  .login {
+    display: none;
+  }
+
   .blogheader {
     min-height: 0;
   }
