@@ -21,6 +21,7 @@ import { BlogAboutComponent } from './components/blogabout/blogabout.component';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 import { BlogService } from './services/blog.service';
+import { AuthenticationService } from './services/authentication.service';
 
 const routes: Routes = [
   {path: '', component: BlogComponent,
@@ -54,7 +55,8 @@ const routes: Routes = [
   ],
   providers: [
     HighlightJsService,
-    BlogService
+    BlogService,
+    AuthenticationService
   ],
   bootstrap: [
     InfoDialogComponent,

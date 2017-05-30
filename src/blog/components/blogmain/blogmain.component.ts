@@ -3,6 +3,7 @@ import { BlogService } from '../../services/blog.service';
 import { MdDialog } from '@angular/material';
 import { InfoDialogComponent, InfoDialogField, InfoDialogOutput } from '../infodialog/infodialog.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'blog-main',
@@ -12,6 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class BlogMainComponent implements OnInit {
 
   constructor(private blogService: BlogService,
+              private auth: AuthenticationService,
               private dialog: MdDialog,
               private router: Router,
               private route: ActivatedRoute) {}

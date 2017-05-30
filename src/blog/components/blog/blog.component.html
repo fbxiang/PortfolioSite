@@ -1,5 +1,11 @@
 <div class="blogheader">
-  <button md-button class="login" (click)="login()">Login</button>
+  <button *ngIf="!auth.isLoggedIn()"
+      md-button class="login"
+          (click)="login()">Login</button>
+  <button *ngIf="auth.isLoggedIn()"
+          md-button class="login"
+          (click)="logout()">Logout</button>
+
   <div class="header-content">
     <div class="title">Blogs Posts Tutorials</div>
     <div class="subtitle">We Make Trivial Facts Involved</div>
