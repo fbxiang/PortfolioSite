@@ -8,12 +8,23 @@ import * as mkdirp from 'mkdirp';
 
 const upload = multer({ dest: 'uploads/' });
 
-
+// Router for the blog page
 export const blogPageRouter = express.Router();
 
+// We only allow numbers, letters, underscore, dot, and space in file name
+function isValidFileName(name) {
+  return name && /^[0-9a-zA-Z_. ]+$/.test(name);
+}
+
+// Get a page with author and title
 blogPageRouter.get('/blog/page', async (req, res, next) => {
   let author = req.query['author'];
   let title = req.query['title'];
+
+  if (!author && !title) {
+    res.status(400).send("Invalid title or author");
+  }
+
   try {
     let document = await BlogPageModel.findOne({author, title});
     if (document)
@@ -32,9 +43,11 @@ const defaultBlogPageBody =`
 There are nothing here yet.
 `
 
+// Create a new blog page with author, title, and description
 async function createNewBlogPage(author, title, description) {
   let page = await BlogPageModel.findOne({title, author});
   if (page) throw {status: 400, message: 'blog page exists'};
+  if (isValidFileName(title))
 
   try {
     let newBlogPage = new BlogPageModel() as BlogPage;
@@ -50,10 +63,16 @@ async function createNewBlogPage(author, title, description) {
   }
 }
 
+// POST
+// body: {author, title, description}
 blogPageRouter.post('/blog/page/add', authenticateByToken, async (req, res, next) => {
   let author = req.body['author'];
   let title = req.body['title'];
   let description = req.body['description'];
+
+  // Names are not valid
+  if (!isValidFileName(title) || !isValidFileName(author))
+    res.status(400).send('Invalid author or page title');
 
   try {
     await createNewBlogPage(author, title, description);
@@ -65,9 +84,14 @@ blogPageRouter.post('/blog/page/add', authenticateByToken, async (req, res, next
   }
 })
 
+// POST
+// delete with author and title
 blogPageRouter.post('/blog/page/delete', authenticateByToken, async (req, res, next) => {
   let author = req.body['author'];
   let title = req.body['title'];
+
+  if (!isValidFileName(author) || isValidFileName(title))
+    res.status(400).send('Invalid author or page title');
 
   try {
     await BlogPageModel.findOneAndRemove({title, author});
@@ -78,6 +102,8 @@ blogPageRouter.post('/blog/page/delete', authenticateByToken, async (req, res, n
   }
 })
 
+// POST
+// body: {title, author, body}
 blogPageRouter.post('/blog/page/edit', authenticateByToken, async(req, res, next) => {
   let author = req.body['author'];
   let title = req.body['title'];
@@ -97,16 +123,21 @@ blogPageRouter.post('/blog/page/edit', authenticateByToken, async(req, res, next
   }
 })
 
+// Get latest 10 blog pages
 blogPageRouter.get('/blog/latest', async (req, res, next) => {
   let documents = await BlogPageModel.find().sort({date: -1}).limit(10);
   res.send(documents);
 })
 
+// Get all pages sorted by date
 blogPageRouter.get('/blog/all', async (req, res, next) => {
   let documents = await BlogPageModel.find().sort({date: -1}).select('title author date');
   res.send(documents);
 })
 
+// Get
+// query: {s: keyword}
+// Search with keyword
 blogPageRouter.get('/blog/search', async (req, res, next) => {
   let text = req.query['s'];
   if (! text) return res.send([]);
@@ -115,17 +146,32 @@ blogPageRouter.get('/blog/search', async (req, res, next) => {
 })
 
 blogPageRouter.post('/blog/image/upload', authenticateByToken, upload.single('image'), async (req, res, next) => {
-  if (!req.body.path || !req.file || !req.file.originalname) {
-    return res.status(400).send('File is missing');
+  const author = req.body.author;
+  const title = req.body.title;
+
+  // check image is there
+  if (!req.file || !req.file.originalname) {
+    return res.status(400).send('Image or its name is missing');
   }
 
-  // FIXME: Check filename is desired
-  const filepath = path.join(__dirname, '../static/blog/page', req.body.path);
+  console.log('debug', isValidFileName(req.file.originalname));
+  //check the path will be valid for the image
+  if (!isValidFileName(author) || !isValidFileName(title) || !isValidFileName(req.file.originalname))
+    return res.status(400).send('Image name is not valid');
 
+  const filepath = path.join(__dirname, '../static/blog/page', author, title);
+
+  let fileTypeArray = req.file.mimetype.toLowerCase().split('/');
+  if (fileTypeArray.length != 2) {
+    return res.status(400).send('File format can not be recognized');
+  }
+  const format = fileTypeArray[1];
+
+  // make directories recursively
   mkdirp(filepath, err => {
     let filename = req.file.originalname;
-    if (!filename.endsWith('.png'))
-      filename += '.png';
+    if (!filename.toLowerCase().endsWith(`.${format}`))
+      filename += `.${format}`;
     let newFile = path.join(filepath, filename);
 
     fs.exists(newFile, exists => {
@@ -134,7 +180,7 @@ blogPageRouter.post('/blog/image/upload', authenticateByToken, upload.single('im
       else {
         fs.rename(req.file.path, newFile);
         res.send({
-          url: path.join('/api/blog/page', req.body.path, filename)
+          url: path.join('/api/blog/page', author, title, filename)
         });
       }
     })

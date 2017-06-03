@@ -55,10 +55,11 @@ export class BlogService {
       })
   }
 
-  uploadImage(blob, filename, routerPath) {
+  uploadImage(blob, filename, author, title) {
     let formData = new FormData();
     formData.append('image', blob, filename);
-    formData.append('path', routerPath);
+    formData.append('author', author);
+    formData.append('title', title)
     return this.auth.post('/api/blog/image/upload', formData)
       .map(res => res.json());
   }

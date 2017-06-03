@@ -21,3 +21,15 @@
 .target:focus {
   box-shadow: 0 0 10px 10px rgba(0, 255, 255, 0.4);
 }
+
+textarea {
+  width: 100%;
+  white-space: nowrap;
+  outline: none;
+  border-radius: 2px;
+  resize: none;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}

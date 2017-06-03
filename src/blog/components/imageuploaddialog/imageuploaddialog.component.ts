@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { BlogService } from '../../services/blog.service';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'imageuploaddialog',
@@ -9,6 +10,8 @@ import { BlogService } from '../../services/blog.service';
 })
 export class ImageUploadDialogComponent implements OnInit {
   @ViewChild('myTarget') target: ElementRef;
+  @ViewChild('myUploadButton') uploadButton: ElementRef;
+  @ViewChild('myText') urlText: ElementRef;
   @Input() author: string;
   @Input() title: string;
 
@@ -17,7 +20,8 @@ export class ImageUploadDialogComponent implements OnInit {
   url = "";
 
   constructor(private dialogRef: MdDialogRef<ImageUploadDialogComponent>,
-              private blogService: BlogService) {}
+              private blogService: BlogService,
+              private snackBar: MdSnackBar) {}
 
   ngOnInit() {
     (<any>document).onpaste = event => {
@@ -57,16 +61,23 @@ export class ImageUploadDialogComponent implements OnInit {
   onSubmit(f) {
     console.log(f);
     if (f.valid && this.blob) {
-      this.blogService.uploadImage(this.blob, f.value.name, `${this.author}/${this.title}`).subscribe(
+      this.blogService.uploadImage(this.blob, f.value.name, this.author, this.title).subscribe(
         res => {
           this.url = res.url.split(' ').join('%20');
         },
-        err => console.log('error', err)
-      )
+        err => {
+          this.snackBar.open(err._body, "Dismiss", {duration: 5000})
+        }
+      );
     }
   }
 
   done() {
+    this.urlText.nativeElement.select();
+    document.execCommand('copy');
+    this.snackBar.open('Image URL copied to clipboard', "Dismiss", {
+      duration: 5000
+    });
     this.dialogRef.close();
   }
 }
