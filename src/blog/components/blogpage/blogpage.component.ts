@@ -17,6 +17,9 @@ export class BlogPageComponent implements OnInit {
   title: string;
   date: string;
 
+  nextPage;
+  prevPage;
+
   editing = false;
 
   constructor(private dialog: MdDialog,
@@ -108,6 +111,27 @@ export class BlogPageComponent implements OnInit {
         console.log(err);
       }
     )
+
+    this.blogService.getAdjacentPages(this.title, this.author).subscribe(
+      response => {
+        this.nextPage = response.next;
+        this.prevPage = response.prev;
+        console.log(response);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  prevPageLink() {
+    if (!this.prevPage) return null;
+    return `../../${this.prevPage.author}/${this.prevPage.title}`;
+  }
+
+  nextPageLink() {
+    if (!this.nextPage) return null;
+    return `../../${this.nextPage.author}/${this.nextPage.title}`;
   }
 
   ngOnInit() {

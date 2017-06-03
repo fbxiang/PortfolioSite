@@ -35,8 +35,7 @@ export class BlogMainComponent implements OnInit {
             this.router.navigate([res.author, res.title], {relativeTo: this.route});
           },
           err => {
-            console.log(err);
-            this.snackBar.open("Please log in first.", "Dismiss", {duration: 5000});
+            this.snackBar.open(err._body, "Dismiss", {duration: 5000});
           }
         )
       }

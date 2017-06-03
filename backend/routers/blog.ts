@@ -22,7 +22,7 @@ blogPageRouter.get('/blog/page', async (req, res, next) => {
   let title = req.query['title'];
 
   if (!author && !title) {
-    res.status(400).send("Invalid title or author");
+    return res.status(404).send("Invalid title or author");
   }
 
   try {
@@ -38,6 +38,26 @@ blogPageRouter.get('/blog/page', async (req, res, next) => {
   }
 })
 
+blogPageRouter.get('/blog/page/adjacent', async (req, res, next) => {
+  let author = req.query['author'];
+  let title = req.query['title'];
+
+  if (!author && !title)
+    return res.status(404).send('Invalid title or author');
+  try {
+    let document = <BlogPage>await BlogPageModel.findOne({author, title});
+    if (!document)
+      return res.status(404).send("Blog page does not exist");
+
+    let nextDocument = await BlogPageModel.find({date: {$gt: document.date}}).sort({date: -1}).limit(1).select('author title date');
+    let prevDocument = await BlogPageModel.find({date: {$lt: document.date}}).sort({date: 1}).limit(1).select('author title date');
+    res.send({next: nextDocument[0], prev: prevDocument[0]});
+  }
+  catch (err) {
+    res.status(404).send('Cannot find documents');
+  }
+})
+
 const defaultBlogPageBody =`
 # New Post
 There are nothing here yet.
@@ -47,7 +67,6 @@ There are nothing here yet.
 async function createNewBlogPage(author, title, description) {
   let page = await BlogPageModel.findOne({title, author});
   if (page) throw {status: 400, message: 'blog page exists'};
-  if (isValidFileName(title))
 
   try {
     let newBlogPage = new BlogPageModel() as BlogPage;
@@ -72,7 +91,7 @@ blogPageRouter.post('/blog/page/add', authenticateByToken, async (req, res, next
 
   // Names are not valid
   if (!isValidFileName(title) || !isValidFileName(author))
-    res.status(400).send('Invalid author or page title');
+    return res.status(400).send('Invalid author or page title');
 
   try {
     await createNewBlogPage(author, title, description);
@@ -90,8 +109,8 @@ blogPageRouter.post('/blog/page/delete', authenticateByToken, async (req, res, n
   let author = req.body['author'];
   let title = req.body['title'];
 
-  if (!isValidFileName(author) || isValidFileName(title))
-    res.status(400).send('Invalid author or page title');
+  if (!isValidFileName(author) || !isValidFileName(title))
+    return res.status(400).send('Invalid author or page title');
 
   try {
     await BlogPageModel.findOneAndRemove({title, author});
@@ -154,7 +173,6 @@ blogPageRouter.post('/blog/image/upload', authenticateByToken, upload.single('im
     return res.status(400).send('Image or its name is missing');
   }
 
-  console.log('debug', isValidFileName(req.file.originalname));
   //check the path will be valid for the image
   if (!isValidFileName(author) || !isValidFileName(title) || !isValidFileName(req.file.originalname))
     return res.status(400).send('Image name is not valid');

@@ -32,6 +32,11 @@ export class BlogService {
       })
   }
 
+  getAdjacentPages(title: string, author: string) {
+    return this.auth.get(`/api/blog/page/adjacent?title=${title}&author=${author}`)
+      .map(response => response.json());
+  }
+
   getLatestPages() {
     return this.auth
       .get('/api/blog/latest')

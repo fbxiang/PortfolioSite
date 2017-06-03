@@ -10,9 +10,6 @@
   margin: auto;
   border-radius: 1px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
 }
 
 .container.edit {
@@ -51,6 +48,10 @@
 
 .markdown-area {
   flex-grow: 1;
+}
+
+.adjacent {
+  display: block;
 }
 
 @media only screen and (max-width: 800px) {

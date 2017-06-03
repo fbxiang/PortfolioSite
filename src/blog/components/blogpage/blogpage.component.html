@@ -8,6 +8,7 @@
   </div>
   <div style="height: 4vh;"></div>
   <div class="container" [ngClass]="{'edit': editing}">
+    <div style="background-color: white;">
     <div class="title">{{title}}</div>
     <div class="subtitle">
       <div class="author">{{author}}</div>
@@ -15,6 +16,16 @@
     </div>
     <div *ngIf="md || md === ''" class="markdown-area">
       <markdown [editing]="editing" [(md)]="md"></markdown>
+    </div>
+    </div>
+
+    <div class="adjacent">
+      <a [routerLink]="prevPageLink()"
+         style="float:left"
+         *ngIf="prevPage">prev: {{prevPage.title}}</a>
+      <a [routerLink]="nextPageLink()"
+         style="float:right"
+         *ngIf="nextPage">next: {{nextPage.title}}</a>
     </div>
   </div>
 </div>
