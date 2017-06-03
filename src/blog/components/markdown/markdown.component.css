@@ -101,3 +101,10 @@
 :host >>> a {
   color: #2A5DB0;
 }
+
+:host >>> img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  border-radius: 5px;
+}

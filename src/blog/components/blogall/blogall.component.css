@@ -1,0 +1,22 @@
+.blogall {
+  display: flex;
+  justify-content: center;
+  padding: 5vh 0;
+  min-height: 90vh;
+}
+
+.container a {
+  color: firebrick;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.container .author {
+  font-size: 1.3em;
+}
+
+.container .time {
+  color: gray;
+  font-size: 1.2em;
+  font-weight: bolg;
+}

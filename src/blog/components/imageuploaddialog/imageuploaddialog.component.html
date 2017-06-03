@@ -1,0 +1,17 @@
+<div>
+  <div class="container">
+    <div class="title">Paste Image Here:</div>
+    <div #myTarget id="target" class="target" tabindex="0">
+    </div>
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <md-input-container>
+        <input mdInput placeholder="Image Name" required name="name" ngModel>
+      </md-input-container>
+      <button md-button *ngIf="blob">Upload</button>
+    </form>
+    <div *ngIf="url">
+      <div *ngIf="url" style="align-self: center;">![]({{url}})</div>
+      <button md-button (click)="done()">Done</button>
+    </div>
+  </div>
+</div>

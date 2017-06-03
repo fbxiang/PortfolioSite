@@ -1,0 +1,11 @@
+<div class="blogall">
+  <div class="title-container">
+    <table class="container">
+      <tr *ngFor="let page of pages">
+        <td><a [routerLink]="getPageLink(page)">{{page.title}}</a></td>
+        <td class="author">{{page.author}}</td>
+        <td class="time">{{page.date.substr(0, 10)}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

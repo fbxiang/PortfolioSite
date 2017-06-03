@@ -5,9 +5,10 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Orbitron:900');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
 
 body {
   margin: 0;
   background-color: #f7f5f4;
-  font-family: Open sans, Helvetica, Arila;
+  font-family: Merriweather, Open sans, Helvetica, Arila;
 }

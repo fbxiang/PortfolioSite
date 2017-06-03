@@ -43,8 +43,8 @@ async function authenticateByUsername(username: string, password: string) {
   }
 }
 
-function authenticateByToken(req: express.Request, res: express.Response, next: express.NextFunction) {
-  validateTokenIdentity(req.body.token).then(user => {
+export function authenticateByToken(req: express.Request, res: express.Response, next: express.NextFunction) {
+  validateTokenIdentity(req.headers.token).then(user => {
     res.locals.user = user;
     next();
   }).catch(err => {

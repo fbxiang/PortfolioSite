@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../../services/blog.service';
-import { MdDialog } from '@angular/material';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { InfoDialogComponent, InfoDialogField, InfoDialogOutput } from '../infodialog/infodialog.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -15,6 +15,7 @@ export class BlogMainComponent implements OnInit {
   constructor(private blogService: BlogService,
               private auth: AuthenticationService,
               private dialog: MdDialog,
+              private snackBar: MdSnackBar,
               private router: Router,
               private route: ActivatedRoute) {}
 
@@ -35,7 +36,7 @@ export class BlogMainComponent implements OnInit {
           },
           err => {
             console.log(err);
-            // FIXME: Handle Error
+            this.snackBar.open("Please log in first.", "Dismiss", {duration: 5000});
           }
         )
       }

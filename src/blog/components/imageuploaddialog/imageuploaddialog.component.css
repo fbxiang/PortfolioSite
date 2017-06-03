@@ -1,0 +1,23 @@
+.container {
+  min-height: 40vw;
+  min-width: 50vw;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.target {
+  height: 30vw;
+  width: 50vw;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #999;
+  transition: 0.3s all;
+  margin: auto;
+}
+
+.target:focus {
+  box-shadow: 0 0 10px 10px rgba(0, 255, 255, 0.4);
+}

@@ -1,10 +1,12 @@
 <div class="blogpage">
-  <div class="panel">
-    <button *ngIf="!editing" md-button (click)="newPage()">New Page</button>
-    <button *ngIf="!editing" md-button (click)="startEdit()">Edit Page</button>
-    <button *ngIf="editing" md-button (click)="finishEdit()">Apply</button>
-    <button *ngIf="!editing" md-button (click)="deletePage()">Delete Page</button>
+  <div class="panel" *ngIf="auth.isLoggedIn()">
+    <button *ngIf="!editing" md-button (click)="newPage()" >New Page</button>
+    <button *ngIf="!editing" md-button (click)="startEdit()" >Edit Page</button>
+    <button *ngIf="!editing" md-button (click)="deletePage()" >Delete Page</button>
+    <button *ngIf="editing" md-button (click)="finishEdit()" >Apply</button>
+    <button *ngIf="editing" md-button (click)="uploadImage()" >Upload Image</button>
   </div>
+  <div style="height: 4vh;"></div>
   <div class="container" [ngClass]="{'edit': editing}">
     <div class="title">{{title}}</div>
     <div class="subtitle">

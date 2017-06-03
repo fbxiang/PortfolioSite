@@ -1,8 +1,11 @@
 <div class="blogmain">
   <div class="panel">
-    <button md-button (click)="newPage()">New Page</button>
+    <button md-button (click)="newPage()" *ngIf="auth.isLoggedIn()">New Page</button>
   </div>
   <div class="clips">
     <blog-clip *ngFor="let blogPage of blogPages" [blogPage]="blogPage"></blog-clip>
+  </div>
+  <div class="all-container">
+    <a routerLink="../all">All Posts</a>
   </div>
 </div>

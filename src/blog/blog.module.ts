@@ -1,3 +1,5 @@
+import { ImageUploadDialogComponent } from './components/imageuploaddialog/imageuploaddialog.component';
+import { BlogAllComponent } from './components/blogall/blogall.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +31,8 @@ const routes: Routes = [
      {path: '', redirectTo: 'page'},
      {path: 'page', component: BlogMainComponent},
      {path: 'page/:author/:title', component: BlogPageComponent},
-     {path: 'about', component: BlogAboutComponent}
+     {path: 'about', component: BlogAboutComponent},
+     {path: 'all', component: BlogAllComponent}
    ]},
 ];
 
@@ -43,6 +46,8 @@ const routes: Routes = [
     CodemirrorModule
   ],
   declarations: [
+    ImageUploadDialogComponent,
+    BlogAllComponent,
     MathCodeDirective,
     BlogPageComponent,
     MarkdownComponent,
@@ -59,6 +64,7 @@ const routes: Routes = [
     AuthenticationService
   ],
   bootstrap: [
+    ImageUploadDialogComponent,
     InfoDialogComponent,
     BlogLoginComponent
   ],

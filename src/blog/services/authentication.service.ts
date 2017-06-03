@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs/Rx';
 
 const IDENTITY_TOKEN = 'user:identity_token';
@@ -38,20 +38,13 @@ export class AuthenticationService {
           err => this.identityToken = null
         );
       }
-
-      if (token) {
-        console.log("logged in");
-      }
-      else {
-        console.log("not logged in");
-      }
     })
   }
 
   private refreshToken() {
     return Observable.interval(1000000).startWith(0).switchMap(
       (v, i) => {
-        return this.http.post('/api/user/refresh', {token: this.identityToken})
+        return this.post('/api/user/refresh')
       }
     ).map(res => res.text());
   }
@@ -61,7 +54,6 @@ export class AuthenticationService {
       .post('/api/user/login', {username, password})
       .map(
         res => {
-          console.log(res.text());
           this.identityToken = res.text();
           return null;
         }
@@ -70,5 +62,17 @@ export class AuthenticationService {
 
   logout() {
     this.identityToken = null;
+  }
+
+  get(url: string) {
+    let headers = new Headers();
+    headers.append('token', this.identityToken);
+    return this.http.get(url, ({headers}));
+  }
+
+  post(url: string, body={}) {
+    let headers = new Headers();
+    headers.append('token', this.identityToken);
+    return this.http.post(url, body, {headers});
   }
 }

@@ -11,6 +11,7 @@ const BlogPageSchema = new Schema({
 
 BlogPageSchema.index({author: 1, title: 1}, {unique: true})
 BlogPageSchema.index({date: -1});
+BlogPageSchema.index({title: 'text', body: 'text'});
 
 export const BlogPageModel = db.model('blogpages', BlogPageSchema);
 

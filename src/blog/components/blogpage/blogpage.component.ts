@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { InfoDialogComponent, InfoDialogOutput } from '../infodialog/infodialog.component'
 import { BlogService } from '../../services/blog.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication.service';
+import { ImageUploadDialogComponent } from '../imageuploaddialog/imageuploaddialog.component';
 
 @Component({
   selector: 'blog-page',
@@ -16,6 +18,13 @@ export class BlogPageComponent implements OnInit {
   date: string;
 
   editing = false;
+
+  constructor(private dialog: MdDialog,
+              private blogService: BlogService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private auth: AuthenticationService,
+              private snackBar: MdSnackBar) {}
 
   startEdit() {
     this.editing = true;
@@ -31,7 +40,8 @@ export class BlogPageComponent implements OnInit {
       },
       err => {
         console.log(err);
-        // FIXME:
+        this.snackBar.open("Please log in first.", "Dismiss", {duration: 5000});
+        this.editing = false;
       }
     )
   }
@@ -51,7 +61,8 @@ export class BlogPageComponent implements OnInit {
           },
           err => {
             console.log(err);
-            // FIXME: Handle Error
+            this.snackBar.open("Please log in first.", "Dismiss", {duration: 5000});
+            this.editing = false;
           }
         )
       }
@@ -71,11 +82,18 @@ export class BlogPageComponent implements OnInit {
           },
           err => {
             console.log(err);
-            // FIXME: Handle Error
+            this.snackBar.open("Please log in first.", "Dismiss", {duration: 5000});
+            this.editing = false;
           }
         )
       }
     })
+  }
+
+  uploadImage() {
+    const dialog = this.dialog.open(ImageUploadDialogComponent);
+    dialog.componentInstance.author = this.author;
+    dialog.componentInstance.title = this.title;
   }
 
   public md: string;
@@ -92,8 +110,6 @@ export class BlogPageComponent implements OnInit {
     )
   }
 
-  constructor(private dialog: MdDialog, private blogService: BlogService,
-              private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {
     this.route.params.subscribe(
       params => {
