@@ -1,34 +1,81 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HeadbarComponent } from './components/headbar/headbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { FootnoteComponent } from './components/footnote/footnote.component';
 import { AppComponent } from './components/app/app.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
+import { PortfolioPageComponent } from './components/portfoliopage/portfoliopage.component';
+import { AddPageComponent } from './components/addpage/addpage.component';
+import { PortfolioBlockComponent } from './components/portfolioblock/portfolioblock.component';
+import { PortfolioNavbarComponent } from './components/portfolionavbar/portfolionavbar.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from '@angular/material';
+
+import { PageNotFoundComponComponent } from './components/pagenotfound/pagenotfound.component';
+
+import { MathJaxDirective } from './directives/mathjax.directive';
+
+import { PortfolioService } from './services/portfolio.service';
+import { PageMainComponent } from './components/page-main/page-main.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: "blog", pathMatch: 'full'},
-  {path: 'site/fanboxiang', loadChildren: 'fanbo/fanbo.module#FanboModule'},
-  {path: 'blog', loadChildren: 'blog/blog.module#BlogModule'}
-]
+  {path: '', component: PageMainComponent,
+   children: [
+     {path: '', pathMatch: 'full', redirectTo: 'home'},
+     {path: 'home', component: GalleryComponent},
+     {path: 'portfolio', component: PortfolioComponent,
+      children: [
+        {path: '', component: PageNotFoundComponComponent},
+        {path: ':id', component: PortfolioPageComponent}
+      ]
+     },
+   ]},
+];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
+    CommonModule,
     BrowserModule,
-    FormsModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
     HttpModule,
     MaterialModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [
+    AddPageComponent
+  ],
+  declarations: [
+    HeadbarComponent,
+    NavbarComponent,
+    GalleryComponent,
+    FootnoteComponent,
+    AppComponent,
+    PortfolioComponent,
+    SidenavbarComponent,
+    PageNotFoundComponComponent,
+    PortfolioPageComponent,
+    PortfolioNavbarComponent,
+    AddPageComponent,
+    PortfolioBlockComponent,
+    MathJaxDirective,
+    PageMainComponent,
+  ],
+  providers: [
+    PortfolioService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {}

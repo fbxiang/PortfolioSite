@@ -14,10 +14,10 @@ interface NavbarItem {
 export class NavbarComponent implements OnInit {
 
   public items: NavbarItem[] = [
-    {name: "Home", href: "home"},
-    {name: "Resume", href: "resume"},
-    {name: "Experience", href: "experience"},
-    {name: "Portfolio", href: "portfolio"}
+    {name: "Home", href: "/home"},
+    {name: "Resume", href: "/resume"},
+    {name: "Experience", href: "/experience"},
+    {name: "Portfolio", href: "/portfolio"}
   ]
 
   constructor() {}
