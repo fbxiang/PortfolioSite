@@ -35,7 +35,7 @@ const routes: Routes = [
      {path: 'portfolio', component: PortfolioComponent,
       children: [
         {path: '', component: PageNotFoundComponComponent},
-        {path: ':id', component: PortfolioPageComponent}
+        {path: ':name', component: PortfolioPageComponent}
       ]
      },
    ]},

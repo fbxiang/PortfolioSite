@@ -11,14 +11,23 @@ import { PortfolioService } from '../../services/portfolio.service';
 export class PortfolioPageComponent implements OnInit {
   private blocks: string[];
   private id: string;
+  private md = '';
 
   constructor(private router: Router,
               private route: ActivatedRoute,
               private portfolioService: PortfolioService) {}
 
-  onChildSubmitted(text, idx) {
-  }
-
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      console.log(this.portfolioService.currentPage);
+      const summary = this.portfolioService.getSummaryByName(params.name);
+      if (summary && summary.markdown) {
+        this.portfolioService.getMarkdown(summary.markdown).then(md => {
+          this.md = md;
+        })
+      } else {
+        this.md = '';
+      }
+    })
   }
 }

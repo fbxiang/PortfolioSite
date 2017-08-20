@@ -11,23 +11,12 @@ const markdown = MarkdownIt().use(mk());
 })
 export class PortfolioBlockComponent implements OnInit {
 
-  @Output() onSubmitted = new EventEmitter<string>();
-
   @Input() md: string;
 
   private editing: boolean = false;
 
   formattedText() {
     return markdown.render(this.md);
-  }
-
-  private submit() {
-    this.editing = false;
-    this.onSubmitted.emit(this.md);
-  }
-
-  private startEditing() {
-    this.editing = true;
   }
 
   constructor() {}

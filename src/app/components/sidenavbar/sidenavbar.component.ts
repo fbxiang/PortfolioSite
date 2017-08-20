@@ -14,8 +14,6 @@ interface NavbarItem {
 })
 
 export class SidenavbarComponent implements OnInit {
-
-  items: NavbarItem[] = [];
   get portfolioSummaries() {
     return this.portfolioService.portfolioSummaries;
   }

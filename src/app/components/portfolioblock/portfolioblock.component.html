@@ -1,10 +1,5 @@
 <div class="portfolioblock">
   <div class="main">
-    <textarea md-input *ngIf="editing" [(ngModel)]="md"></textarea>
     <div id="display" [MathJax]="formattedText()" ></div>
-  </div>
-  <div class="panel">
-    <button *ngIf="!editing" md-button (click)="startEditing()">edit</button>
-    <button *ngIf="editing" md-button (click)="submit()">done</button>
   </div>
 </div>
