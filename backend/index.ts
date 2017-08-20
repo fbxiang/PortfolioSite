@@ -5,13 +5,11 @@ import * as fs from 'fs';
 
 const app = express();
 
-import { portfolioPageRouter, portfolioRouter } from './routers/portfolio';
+import { portfolioRouter } from './routers/portfolio';
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-// app.use('/api', express.static(__dirname + '/static'))
 
-app.use(portfolioPageRouter);
 app.use('/api', portfolioRouter);
 
 const port = process.env.PORT ? process.env.PORT : 3000;

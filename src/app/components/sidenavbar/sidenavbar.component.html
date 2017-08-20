@@ -1,9 +1,8 @@
 <div class="sidenavbar">
   <h2>Projects</h2>
   <div class="container">
-    <button *ngFor="let item of items" md-button
-            routerLink="{{item.href}}">{{item.name}}
+    <button *ngFor="let summary of portfolioSummaries" md-button
+            routerLink="{{item.name}}">{{summary.name}}
     </button>
-    <button class="button-add" (click)="openAddPageDialog()" md-icon-button>+</button>
   </div>
 </div>

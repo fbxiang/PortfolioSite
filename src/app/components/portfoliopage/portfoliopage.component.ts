@@ -17,26 +17,8 @@ export class PortfolioPageComponent implements OnInit {
               private portfolioService: PortfolioService) {}
 
   onChildSubmitted(text, idx) {
-    this.portfolioService.changePortfolioPage('fanboxiang', this.id, idx, text).subscribe(
-      response => {console.log(response)},
-      err => {console.log('error', err)},
-      () => {});
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      console.log(params['id']);
-      this.id = params['id'];
-      this.portfolioService.getPortfolioPage('fanboxiang', params['id']).subscribe(
-        blocks => {
-          this.blocks = blocks as string[];
-        },
-        error => {
-          console.log(error);
-          this.blocks = [];
-        },
-        () => {}
-      )
-    });
   }
 }

@@ -14,7 +14,6 @@ import { AppComponent } from './components/app/app.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 import { PortfolioPageComponent } from './components/portfoliopage/portfoliopage.component';
-import { AddPageComponent } from './components/addpage/addpage.component';
 import { PortfolioBlockComponent } from './components/portfolioblock/portfolioblock.component';
 import { PortfolioNavbarComponent } from './components/portfolionavbar/portfolionavbar.component';
 
@@ -53,7 +52,6 @@ const routes: Routes = [
     FormsModule
   ],
   entryComponents: [
-    AddPageComponent
   ],
   declarations: [
     HeadbarComponent,
@@ -66,7 +64,6 @@ const routes: Routes = [
     PageNotFoundComponComponent,
     PortfolioPageComponent,
     PortfolioNavbarComponent,
-    AddPageComponent,
     PortfolioBlockComponent,
     MathJaxDirective,
     PageMainComponent,
