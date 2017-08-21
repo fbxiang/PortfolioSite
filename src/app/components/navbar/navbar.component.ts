@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   public items: NavbarItem[] = [
     {name: "Home", href: "/home"},
-    {name: "Resume", href: "/resume"},
+    {name: "Resume", href: "/api/CV.pdf"},
     {name: "Experience", href: "/experience"},
     {name: "Portfolio", href: "/portfolio"}
   ]

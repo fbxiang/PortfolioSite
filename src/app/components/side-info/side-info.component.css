@@ -1,0 +1,22 @@
+:host {
+  font-family: Helvetica, Arial;
+  margin: 20px 5px;
+}
+
+.title {
+  font-size: 1.3em;
+  margin: 10px 0;
+}
+
+.description {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+img {
+  width: 100%;
+}
+
+.detail-block {
+  margin-bottom: 20px;
+}

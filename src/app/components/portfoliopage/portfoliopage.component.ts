@@ -9,9 +9,8 @@ import { PortfolioService } from '../../services/portfolio.service';
   styleUrls: ['./portfoliopage.component.css']
 })
 export class PortfolioPageComponent implements OnInit {
-  private blocks: string[];
-  private id: string;
-  private md = '';
+  md = '';
+  summary;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -19,8 +18,8 @@ export class PortfolioPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(this.portfolioService.currentPage);
       const summary = this.portfolioService.getSummaryByName(params.name);
+      this.summary = summary.summary;
       if (summary && summary.markdown) {
         this.portfolioService.getMarkdown(summary.markdown).then(md => {
           this.md = md;

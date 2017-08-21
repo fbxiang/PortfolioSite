@@ -18,6 +18,10 @@ export class SidenavbarComponent implements OnInit {
     return this.portfolioService.portfolioSummaries;
   }
 
+  get currentPage() {
+    return this.portfolioService.currentPage;
+  }
+
   constructor(private portfolioService: PortfolioService,
               private dialog: MdDialog) {
   }

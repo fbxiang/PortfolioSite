@@ -4,7 +4,7 @@ import * as fs from 'mz/fs';
 
 export const portfolioRouter = express.Router();
 export const portfolioPageRouter = express.Router();
-import { PortfolioData, getPortfolioSummaries, getMarkdown, getImageFilePath } from '../models';
+import { getPortfolioSummaries, getMarkdown, getImageFilePath, getCVFilePath } from '../models';
 
 portfolioRouter.get('/portfolio/summary', (req, res, next) => {
   getPortfolioSummaries()
@@ -26,6 +26,11 @@ portfolioRouter.get('/image/:file', (req, res, next) => {
   getImageFilePath(req.params.file)
     .then(path => res.sendFile(path))
     .catch(err => res.status(404).send({ message: 'Image not found' }));
+})
+
+portfolioRouter.get('/CV.pdf', (req, res, next) => {
+  getCVFilePath().then(path => res.sendFile(path))
+    .catch(err => res.status(404).send({message: 'CV not found'}));
 })
 
 // portfolioRouter.get('/portfolio', async (req, res, next) => {

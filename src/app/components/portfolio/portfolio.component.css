@@ -1,18 +1,13 @@
 .main {
   display: flex;
   flex-direction: row;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: auto;
   min-height: 70vh;
 }
 
 .left {
   margin: 10px;
-}
-
-.main {
-  flex-grow: 1;
-  margin: auto;
 }
 
 .portfolio-nav {

@@ -15,8 +15,13 @@
 .container > button {
   flex: 1;
   opacity: 0.5;
-  transition: opacity 0.3s;
+  transition: all 0.3s;
   text-align: left;
+}
+
+.container > button.active {
+  opacity: 0.9;
+  background-color: #ddd;
 }
 
 .container > button:hover {

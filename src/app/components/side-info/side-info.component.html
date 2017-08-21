@@ -1,0 +1,18 @@
+<div class="title">Project summary</div>
+<div *ngIf="summary">
+  <ul>
+    <li *ngIf="summary.type">Project type: {{summary.type}}</li>
+    <li *ngIf="summary.language">Language: {{summary.language}}</li>
+    <li *ngIf="summary.status">Status: {{summary.status}}</li>
+  </ul>
+  <div class="description" *ngIf="summary.description">{{summary.description}}</div>
+  <div class="detail">
+    <div *ngFor="let item of summary.detail">
+      <div class="title">{{item.section}}</div>
+      <div *ngFor="let content of item.content" class="detail-block">
+        <p *ngIf="content.text">{{content.text}}</p>
+        <img *ngIf="content.image" [src]="imageSrc(content.image)" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,10 @@
 <div class="sidenavbar">
-  <h2>Projects</h2>
-  <div class="container">
-    <button *ngFor="let summary of portfolioSummaries" md-button
-            routerLink="{{summary.name}}">{{summary.name}}
+    <h2>Projects</h2>
+    <div class="container">
+      <button *ngFor="let summary of portfolioSummaries" md-button
+              routerLink="{{summary.name}}"
+              [ngClass]="{active: currentPage == summary.name }"
+      >{{summary.name}}
     </button>
-  </div>
+    </div>
 </div>

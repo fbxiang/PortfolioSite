@@ -26,6 +26,7 @@ import { MathJaxDirective } from './directives/mathjax.directive';
 
 import { PortfolioService } from './services/portfolio.service';
 import { PageMainComponent } from './components/page-main/page-main.component';
+import { SideInfoComponent } from './components/side-info/side-info.component';
 
 const routes: Routes = [
   {path: '', component: PageMainComponent,
@@ -35,7 +36,7 @@ const routes: Routes = [
      {path: 'portfolio', component: PortfolioComponent,
       children: [
         {path: '', component: PageNotFoundComponComponent},
-        {path: ':name', component: PortfolioPageComponent}
+        {path: ':name', canActivate: [PortfolioService], component: PortfolioPageComponent}
       ]
      },
    ]},
@@ -67,6 +68,7 @@ const routes: Routes = [
     PortfolioBlockComponent,
     MathJaxDirective,
     PageMainComponent,
+    SideInfoComponent,
   ],
   providers: [
     PortfolioService

@@ -2,11 +2,6 @@ import * as path from 'path';
 import * as fs from 'mz/fs';
 import * as _ from 'lodash';
 
-export interface PortfolioData {
-  id: string,
-  name: string
-}
-
 export interface PortfolioSummary {
   name: string,
   repository: string,
@@ -23,6 +18,7 @@ export interface PortfolioSummary {
   markdown: string
 }
 
+export const StaticDir = `${__dirname}/static`;
 export const PortfolioDir = `${__dirname}/static/portfolio/`;
 export const ImageDir = `${__dirname}/static/image`;
 
@@ -48,5 +44,14 @@ export async function getImageFilePath(filename: string) {
     return file;
   } else {
     throw Error('File not found');
+  }
+}
+
+export async function getCVFilePath() {
+  const file = path.join(StaticDir, 'CV.pdf');
+  if (await fs.exists(file)) {
+    return file;
+  } else {
+    throw Error('CV not found');
   }
 }

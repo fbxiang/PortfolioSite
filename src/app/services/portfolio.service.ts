@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
 import { PortfolioSummary } from '../models';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { Subject } from 'rxjs/Rx';
 
 @Injectable()
-export class PortfolioService {
+export class PortfolioService implements CanActivate{
 
   _portfolioSummaries: PortfolioSummary[] = [];
   get portfolioSummaries() {
@@ -14,7 +14,12 @@ export class PortfolioService {
   }
 
   get currentPage() {
-    return decodeURIComponent(this.router.url.match(/portfolio\/(..*)($|\/)/)[1]);
+    if (this.router.url) {
+      const m = this.router.url.match(/portfolio\/(..*)($|\/)/);
+      return decodeURIComponent((m && m[1]) ? m[1] : '');
+    } else {
+      return '';
+    }
   };
 
   constructor(private http: Http, private router: Router) {
@@ -22,7 +27,7 @@ export class PortfolioService {
   }
 
   updatePortfolioSummaries() {
-    this.http.get(`/api/portfolio/summary`).toPromise()
+    return this.http.get(`/api/portfolio/summary`).toPromise()
       .then(res => res.json())
       .then(s => this._portfolioSummaries = s)
   }
@@ -34,5 +39,16 @@ export class PortfolioService {
   getMarkdown(filename: string) {
     return this.http.get(`/api/portfolio/${filename}`).toPromise()
       .then(res => res.text())
+  }
+
+  getImageUrl(filename: string) {
+    return `/api/image/${filename}`;
+  }
+
+  canActivate() {
+    if (this.portfolioSummaries.length) {
+      return true;
+    }
+    return this.updatePortfolioSummaries().then(_ => true).catch(_ => false);
   }
 }
