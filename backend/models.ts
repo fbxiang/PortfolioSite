@@ -34,7 +34,7 @@ export async function getMarkdown(filename: string) {
   return markdown;
 }
 
-const ImageSuffix = ['.jpg', '.png'];
+const ImageSuffix = ['.jpg', '.png', '.gif'];
 export async function getImageFilePath(filename: string) {
   if (!ImageSuffix.some(s => filename.endsWith(s))) {
     throw Error('Invalid suffix');
