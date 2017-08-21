@@ -1,0 +1,111 @@
+[{
+  "name": "ACM SigMusic Grand Piano",
+  "repository": "",
+  "summary": {
+    "type": "Web app",
+    "language": ["Javascript", "HTML"],
+    "status": "exhibited at EOH",
+    "description": "Grand Piano is a project by ACM SigMusic for Engineering Open House 2017 at UIUC. I participated in the design of visual elements and music generation logic. I myself designed the Web app code structure.",
+    "details": []
+  },
+  "markdown": "grand_piano.md"
+} , {
+  "name": "Search-plus Chrome Extension",
+  "repository": "https://github.com/fbxiang/SearchPlus",
+  "summary": {
+    "type": "Chrome Extension",
+    "language": ["Javascript", "HTML"],
+    "status": "prototype",
+    "description": "This is an individual project. I designed and implemented it all.",
+    "detail": [{
+      "section": "Multi-word search",
+      "content": [{
+        "image": "search_plus_1.png"
+      }]
+    }, {
+      "section": "Code execution",
+      "content": [{
+        "image": "search_plus_2.png"
+      }, {
+        "image": "search_plus_3.png"
+      }]
+    }]
+  },
+  "markdown": "search-plus.md"
+}, {
+  "name": "CUMTD Bus Assistant",
+  "repository": "",
+  "summary": {
+    "type": "Android Application",
+    "language": ["Java"],
+    "status": "prototype",
+    "description": "This is the final project for the UI design course at UIUC, I was the team coordinator of a group of 5 (4 in the end).\nI am the main program designer of this app. I led the implementations and was responsible for all the details. I collaborated with visual designers and finished the app successfully.",
+    "detail": [{
+      "section": "App on device",
+      "content": [{
+        "image": "cumtd_1.png"
+      }]
+    }]
+  },
+  "markdown": "cumtd.md"
+}, {
+  "name": "2D Physics Engine",
+  "repository": "https://github.com/fbxiang/PhysicsVideoGen",
+  "summary": {
+    "type": "C++ Program",
+    "language": ["C++"],
+    "status": "prototype",
+    "description": "This is a simple physics engine for 2D object collision simulation. The purpose of this physics engine is to generate data for machine learning purposes.",
+    "detail": [{
+      "section": "Generated video frames",
+      "content": [{
+        "image": "physics.gif"
+      }]
+    }]
+  },
+  "markdown": "physics.md"
+}, {
+  "name": "Unity3d projects",
+  "repository": "https://github.com/fbxiang/InventoryDemo",
+  "summary": {
+    "type": "Unity 3d",
+    "language": ["C#"],
+    "status": "prototype",
+    "description": "This is my individual for the Programming Studio course",
+    "detail": [{
+      "section": "Inventory display",
+      "content": [{
+        "image": "inventory_1.png"
+      }, {
+        "image": "inventory_2.png"
+      }]
+    }]
+  },
+  "markdown": "unity3d.md"
+}, {
+  "name": "Chord analysis",
+  "repository": "https://github.com/fbxiang/music-analysis/",
+  "summary": {
+    "type": "Matlab program",
+    "language": ["Matlab"],
+    "status": "prototype",
+    "description": "This is my individual project before in my freshman year",
+    "detail": [{
+      "section": "Load and play music",
+      "content": [{
+        "image": "chord_1.png"
+      }]
+    }, {
+      "section": "Estimate chords",
+      "content": [{
+        "image": "chord_2.png"
+      }]
+    }, {
+      "section": "Real-time tracking",
+      "content": [{
+        "image": "chord_3.png"
+      }]
+    }]
+  },
+  "markdown": "chord.md"
+}]

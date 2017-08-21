@@ -2,7 +2,9 @@
 
 data/*
 uploads
-backend/static/*
+backend/static/**/*.png
+backend/static/**/*.gif
+backend/static/**/*.pdf
 
 # compiled output
 /dist
