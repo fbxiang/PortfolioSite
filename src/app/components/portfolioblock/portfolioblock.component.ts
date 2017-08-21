@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as MarkdownIt from 'markdown-it';
 import * as mk from 'markdown-it-mathjax';
 
-const markdown = MarkdownIt().use(mk());
+const markdown = MarkdownIt({ html: true, linkify: true, typographer: true }).use(mk());
 
 @Component({
   selector: 'portfolio-block',
@@ -15,11 +15,12 @@ export class PortfolioBlockComponent implements OnInit {
 
   private editing: boolean = false;
 
-  formattedText() {
+  markdownToHtml() {
+    const rendered = markdown.render(this.md);
     return markdown.render(this.md);
   }
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
   }
