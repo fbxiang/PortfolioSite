@@ -1,9 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-
-interface NavbarItem {
-  name: string,
-  href: string
-}
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -13,14 +9,14 @@ interface NavbarItem {
 
 export class NavbarComponent implements OnInit {
 
-  public items: NavbarItem[] = [
-    {name: "Home", href: "/home"},
-    {name: "Resume", href: "/api/CV.pdf"},
-    {name: "Experience", href: "/experience"},
-    {name: "Portfolio", href: "/portfolio"}
+  public items = [
+    { name: "Home", action: _ => this.router.navigate(['/home']) },
+    { name: "Resume", action: _ => window.open('/api/CV.pdf')},
+    { name: "Experience", action: _ => this.router.navigate(['/experience']) },
+    { name: "Portfolio", action: _ => this.router.navigate(['/portfolio']) }
   ]
 
-  constructor() {}
+  constructor(private router: Router) { }
   ngOnInit() {
   }
 }

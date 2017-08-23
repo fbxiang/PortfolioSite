@@ -29,17 +29,21 @@ import { PageMainComponent } from './components/page-main/page-main.component';
 import { SideInfoComponent } from './components/side-info/side-info.component';
 
 const routes: Routes = [
-  {path: '', component: PageMainComponent,
-   children: [
-     {path: '', pathMatch: 'full', redirectTo: 'home'},
-     {path: 'home', component: GalleryComponent},
-     {path: 'portfolio', component: PortfolioComponent,
-      children: [
-        {path: '', component: PageNotFoundComponComponent},
-        {path: ':name', canActivate: [PortfolioService], component: PortfolioPageComponent}
-      ]
-     },
-   ]},
+  {
+    path: '', component: PageMainComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'home' },
+      { path: 'home', component: GalleryComponent },
+      {
+        path: 'portfolio', component: PortfolioComponent,
+        children: [
+          { path: '', component: PortfolioPageComponent },
+          { path: '404', component: PageNotFoundComponComponent },
+          { path: ':name', canActivate: [PortfolioService], component: PortfolioPageComponent }
+        ]
+      },
+    ]
+  },
 ];
 
 @NgModule({
@@ -77,4 +81,4 @@ const routes: Routes = [
     AppComponent
   ]
 })
-export class AppModule {}
+export class AppModule { }
