@@ -71,7 +71,7 @@
     "type": "Unity 3d",
     "language": ["C#"],
     "status": "prototype",
-    "description": "This is my individual for the Programming Studio course",
+    "description": "This is my individual for the Programming Studio course.",
     "detail": [{
       "section": "Inventory display",
       "content": [{

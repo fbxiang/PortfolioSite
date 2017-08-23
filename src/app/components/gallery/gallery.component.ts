@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 
 interface GalleryCard {
   img: string,
-  href: string
+  url: string
 }
 
 @Component({
@@ -14,10 +14,10 @@ interface GalleryCard {
 export class GalleryComponent implements OnInit {
 
   public cards: GalleryCard[] = [
-    {img: "../../assets/main_unity.png", href:"unity"},
-    {img: "../../assets/main_android.png", href:"android"},
-    {img: "../../assets/main_physics.png", href:"physics"},
-    {img: "../../assets/main_music.png", href:"music"}
+    {img: "../../assets/main_unity.png", url:"/portfolio/Unity3d projects"},
+    {img: "../../assets/main_android.png", url:"/portfolio/CUMTD Bus Assistant"},
+    {img: "../../assets/main_physics.png", url:"/portfolio/2D Physics Engine"},
+    {img: "../../assets/main_music.png", url:""}
   ]
 
   constructor(private location: Location) { }

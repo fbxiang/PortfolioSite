@@ -1,0 +1,74 @@
+[{
+  "name": "education",
+  "institution": {
+    "name": "University of Illinois Urbana-Champaign",
+    "degree": "Bachelor’s degree in Computer Science\nDual degree in Applied Mathematics",
+    "courses": [
+      {
+        "category": "data structure",
+        "name": "CS225 Data Structures"
+      }, {
+        "category": "data structure",
+        "name": "CS374 Algorithms and Models of Computation"
+      }, {
+        "category": "data structure",
+        "name": "CS450 Numerical Analysis"
+      }, {
+        "category": "AI",
+        "name": "CS361 Probability for Computer Science"
+      }, {
+        "category": "AI",
+        "name": "CS446 Machine Learning"
+      }, {
+        "category": "AI",
+        "name": "CS440 Artificial Intelligence"
+      }, {
+        "category": "AI",
+        "name": "CS412 Data mining"
+      }, {
+        "category": "AI",
+        "name": "CS498 AI for Computer Games"
+      }, {
+        "category": "software",
+        "name": "CS242 Programming Studio"
+      }, {
+        "category": "software",
+        "name": "CS465 User Interface Design"
+      }, {
+        "category": "data structure",
+        "name": "CS418 Computer Graphics"
+      }, {
+        "category": "system",
+        "name": "CS241 System Programming"
+      }, {
+        "category": "system",
+        "name": "CS421 Programming Languages and Compilers"
+      }, {
+        "category": "mathematics",
+        "name": "MATH347 Fundamental Mathematics(Honors)"
+      }, {
+        "category": "mathematics",
+        "name": "MATH416 Abstract Linear Algebra(Honors)"
+      }, {
+        "category": "mathematics",
+        "name": "MATH424 Honors Real Analysis"
+      }, {
+        "category": "mathematics",
+        "name": "MATH427 Honors Abstract Algebra"
+      }, {
+        "category": "mathematics",
+        "name": "Math448 Complex Analysis"
+      }, {
+        "category": "mathematics",
+        "name": "Math461 Probability Theory"
+      }, {
+        "category": "mathematics",
+        "name": "MATH412 Graph Theory"
+      }
+    ],
+    "knowledge": [
+    ],
+    "skills": [
+    ]
+  }
+}]
