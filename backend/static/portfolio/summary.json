@@ -6,7 +6,12 @@
     "language": ["Javascript", "HTML"],
     "status": "exhibited at EOH",
     "description": "Grand Piano is a project by ACM SigMusic for Engineering Open House 2017 at UIUC. I participated in the design of visual elements and music generation logic. I myself designed the Web app code structure.",
-    "details": []
+    "detail": [{
+      "section": "Screenshot",
+      "content": [{
+        "image": "grand_piano_1.png"
+      }]
+    }]
   },
   "markdown": "grand_piano.md"
 } , {

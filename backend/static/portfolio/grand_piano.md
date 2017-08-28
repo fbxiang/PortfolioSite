@@ -12,3 +12,4 @@ I participated mainly in the first 2 parts. We collaborated with electrical engi
 * Proposed and refined the game idea for the interactive exhibit.
 * Designed and participated in the implementation of the game loop structure
 * Denoised hardware input and tuned implementations on the fly when facing hardware failures during the exhibit.
+

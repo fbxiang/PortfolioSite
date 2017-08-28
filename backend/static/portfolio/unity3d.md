@@ -10,3 +10,10 @@ I found inventory system a good start point for any kind of game. The existing i
 * Animation and sound interfaces for user interaction
 * Game update loop encapsulated and broadcasted to all items
 * Callback style item usage definition
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+<iframe id="ytplayer" type="text/html" width="100%" height="100%" style="position: absolute" allowfullscreen
+  src="https://www.youtube.com/embed/YERpxM46MNA"
+  frameborder="0">
+</iframe>
+</div>

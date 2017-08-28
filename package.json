@@ -10,8 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "backend": "nodemon",
-    "database": "mongod --dbpath=data"
+    "backend": "nodemon"
   },
   "private": true,
   "dependencies": {
@@ -64,8 +63,6 @@
     "@types/lodash": "^4.14.64",
     "@types/markdown-it": "0.0.2",
     "@types/mathjax": "0.0.31",
-    "@types/mongoose": "^4.7.13",
-    "@types/multer": "0.0.34",
     "@types/mz": "0.0.31",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
