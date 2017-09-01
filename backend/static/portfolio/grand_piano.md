@@ -13,3 +13,9 @@ I participated mainly in the first 2 parts. We collaborated with electrical engi
 * Designed and participated in the implementation of the game loop structure
 * Denoised hardware input and tuned implementations on the fly when facing hardware failures during the exhibit.
 
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+<iframe id="ytplayer" type="text/html" width="100%" height="100%" style="position: absolute" allowfullscreen
+  src="https://www.youtube.com/embed/FVedboVVNAg"
+  frameborder="0">
+</iframe>
+</div>

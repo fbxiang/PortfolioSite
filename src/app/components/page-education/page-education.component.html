@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="institution">{{institution}}</h1>
+  <div class="degree" *ngFor="let d of degree">{{d}}</div>
+  <h2 class="course">Courses Taken</h2>
+  <div *ngFor="let c of courses" class="course-container">
+    <h3 class="category">{{c[0]}}</h3>
+    <ul>
+      <li *ngFor="let course of c[1]">{{course}}</li>
+    </ul>
+  </div>
+</div>

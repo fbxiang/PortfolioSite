@@ -32,31 +32,3 @@ portfolioRouter.get('/CV.pdf', (req, res, next) => {
   getCVFilePath().then(path => res.sendFile(path))
     .catch(err => res.status(404).send({message: 'CV not found'}));
 })
-
-// portfolioRouter.get('/portfolio', async (req, res, next) => {
-
-//   let jsonFiles: string[] = await readdir(PortfolioDir) as string[];
-//   jsonFiles = jsonFiles.filter(f => f.includes('.json'));
-//   let jsonData = await Promise.all(jsonFiles.map(async file => {
-//     let data = await readFile(`${portfolioDir}${file}`);
-//     let { id, name } = JSON.parse(data.toString()) as PortfolioData;
-//     return { id, name }
-//   }));
-//   res.send(jsonData);
-// })
-
-// portfolioPageRouter.get('/portfolio-page', async (req, res, next) => {
-//   try {
-//     const portfolioDir = `${__dirname}/../static/${req.query['name']}/portfolio/`
-//     const jsonFile = `${portfolioDir}${req.query['id']}.json`;
-//     let data = await readFile(jsonFile);
-//     let portfolioData = JSON.parse(data.toString()) as PortfolioData;
-//     let allFiles = await Promise.all(portfolioData.filenames.map(async f => {
-//       return await readFile(`${portfolioDir}${f}`);
-//     }));
-//     res.send(allFiles);
-//   }
-//   catch (err) {
-//     res.status(404).send({ message: 'Page does not exist yet.' });
-//   }
-// })

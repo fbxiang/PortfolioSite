@@ -25,8 +25,13 @@ import { PageNotFoundComponComponent } from './components/pagenotfound/pagenotfo
 import { MathJaxDirective } from './directives/mathjax.directive';
 
 import { PortfolioService } from './services/portfolio.service';
+import { ExperienceService } from './services/experience.service';
+
 import { PageMainComponent } from './components/page-main/page-main.component';
 import { SideInfoComponent } from './components/side-info/side-info.component';
+import { PageEducationComponent } from './components/page-education/page-education.component';
+import { SidenavExperienceComponent } from './components/sidenav-experience/sidenav-experience.component';
+import { ExperienceComponent } from './components/experience/experience.component';
 
 const routes: Routes = [
   {
@@ -41,7 +46,13 @@ const routes: Routes = [
           { path: '404', component: PageNotFoundComponComponent },
           { path: ':name', canActivate: [PortfolioService], component: PortfolioPageComponent }
         ]
-      },
+      }, {
+        path: 'experience', component: ExperienceComponent,
+        children: [
+          { path: '', redirectTo: 'education', pathMatch: 'full' },
+          { path: 'education', component: PageEducationComponent }
+        ]
+      }
     ]
   },
 ];
@@ -73,9 +84,12 @@ const routes: Routes = [
     MathJaxDirective,
     PageMainComponent,
     SideInfoComponent,
+    PageEducationComponent,
+    SidenavExperienceComponent,
+    ExperienceComponent,
   ],
   providers: [
-    PortfolioService
+    PortfolioService, ExperienceService
   ],
   bootstrap: [
     AppComponent

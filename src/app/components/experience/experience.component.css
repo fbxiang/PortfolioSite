@@ -1,0 +1,16 @@
+
+.left {
+  width: 225px;
+}
+
+.right {
+  flex: 1 0 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  max-width: 1400px;
+  margin: 0 auto 5vh;
+  min-height: 70vh;
+}

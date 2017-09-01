@@ -1,0 +1,28 @@
+.container {
+  margin: auto;
+  padding: 10px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container > button {
+  flex: 1;
+  opacity: 0.5;
+  transition: all 0.3s;
+  text-align: left;
+}
+
+.container > button.active {
+  opacity: 0.9;
+  background-color: #ddd;
+}
+
+.container > button:hover {
+  opacity: 1;
+}
+
+.container button.button-add {
+  text-align: center;
+  background-color: lightgray;
+  margin-left: 10px;
+}

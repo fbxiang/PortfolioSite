@@ -1,8 +1,9 @@
-[{
+{
   "name": "education",
   "institution": {
     "name": "University of Illinois Urbana-Champaign",
-    "degree": "Bachelor’s degree in Computer Science\nDual degree in Applied Mathematics",
+    "degree": ["Bachelor’s degree in Computer Science","Dual degree in Applied Mathematics"],
+    "time": "08/2014 - 05/2018",
     "courses": [
       {
         "category": "data structure",
@@ -51,19 +52,25 @@
         "name": "MATH416 Abstract Linear Algebra(Honors)"
       }, {
         "category": "mathematics",
-        "name": "MATH424 Honors Real Analysis"
+        "name": "MATH424 Real Analysis(Honors)"
       }, {
         "category": "mathematics",
-        "name": "MATH427 Honors Abstract Algebra"
+        "name": "MATH427 Abstract Algebra(Honors)"
       }, {
         "category": "mathematics",
-        "name": "Math448 Complex Analysis"
+        "name": "MATH448 Complex Analysis"
       }, {
         "category": "mathematics",
-        "name": "Math461 Probability Theory"
+        "name": "MATH461 Probability Theory"
       }, {
         "category": "mathematics",
         "name": "MATH412 Graph Theory"
+      }, {
+        "category": "AI",
+        "name": "CS598 Machine Learning for Signal Processing"
+      }, {
+        "category": "mathematics",
+        "name": "MATH564 Applied Stochastic Process"
       }
     ],
     "knowledge": [
@@ -71,4 +78,4 @@
     "skills": [
     ]
   }
-}]
+}
