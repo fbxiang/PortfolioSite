@@ -33,6 +33,7 @@ import { PageEducationComponent } from './components/page-education/page-educati
 import { SidenavExperienceComponent } from './components/sidenav-experience/sidenav-experience.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { PageOtherActivitiesComponent } from './components/page-other-activities/page-other-activities.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,7 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: GalleryComponent },
+      { path: 'profile', component: ProfileComponent },
       {
         path: 'portfolio', component: PortfolioComponent,
         children: [
@@ -90,6 +92,7 @@ const routes: Routes = [
     SidenavExperienceComponent,
     ExperienceComponent,
     PageOtherActivitiesComponent,
+    ProfileComponent,
   ],
   providers: [
     PortfolioService, ExperienceService

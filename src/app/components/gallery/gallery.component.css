@@ -1,6 +1,11 @@
-.gallery {
-  padding: 10px;
+.container {
+  width: 100%;
   background-color: #f1ece1;
+}
+
+.gallery {
+  clear: both;
+  padding: 10px;
   flex-wrap: wrap;
   display: flex;
   justify-content: center;

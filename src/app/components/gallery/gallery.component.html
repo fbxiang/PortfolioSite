@@ -1,5 +1,7 @@
-<div class="gallery">
-  <md-card *ngFor="let card of cards">
-    <a [routerLink]="card.url"><img src="{{card.img}}"/></a>
-  </md-card>
+<div class="container">
+  <div class="gallery">
+    <md-card *ngFor="let card of cards">
+      <a [routerLink]="card.url"><img src="{{card.img}}"/></a>
+    </md-card>
+  </div>
 </div>

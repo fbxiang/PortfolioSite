@@ -11,7 +11,8 @@ export class NavbarComponent implements OnInit {
 
   public items = [
     { name: "Home", action: _ => this.router.navigate(['/home']) },
-    { name: "Resume", action: _ => window.open('/api/CV.pdf')},
+    { name: "Profile", action: _ => this.router.navigate(['/profile']) },
+    { name: "Resume", action: _ => window.open('/api/CV.pdf') },
     { name: "Experience", action: _ => this.router.navigate(['/experience']) },
     { name: "Portfolio", action: _ => this.router.navigate(['/portfolio']) }
   ]
