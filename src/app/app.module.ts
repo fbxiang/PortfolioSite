@@ -32,6 +32,7 @@ import { SideInfoComponent } from './components/side-info/side-info.component';
 import { PageEducationComponent } from './components/page-education/page-education.component';
 import { SidenavExperienceComponent } from './components/sidenav-experience/sidenav-experience.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { PageOtherActivitiesComponent } from './components/page-other-activities/page-other-activities.component';
 
 const routes: Routes = [
   {
@@ -42,7 +43,7 @@ const routes: Routes = [
       {
         path: 'portfolio', component: PortfolioComponent,
         children: [
-          { path: '', component: PortfolioPageComponent },
+          { path: '', component: PortfolioPageComponent, canActivate: [PortfolioService] },
           { path: '404', component: PageNotFoundComponComponent },
           { path: ':name', canActivate: [PortfolioService], component: PortfolioPageComponent }
         ]
@@ -50,7 +51,8 @@ const routes: Routes = [
         path: 'experience', component: ExperienceComponent,
         children: [
           { path: '', redirectTo: 'education', pathMatch: 'full' },
-          { path: 'education', component: PageEducationComponent }
+          { path: 'education', component: PageEducationComponent },
+          { path: 'other', component: PageOtherActivitiesComponent }
         ]
       }
     ]
@@ -87,6 +89,7 @@ const routes: Routes = [
     PageEducationComponent,
     SidenavExperienceComponent,
     ExperienceComponent,
+    PageOtherActivitiesComponent,
   ],
   providers: [
     PortfolioService, ExperienceService
