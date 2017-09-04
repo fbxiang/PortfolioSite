@@ -1,11 +1,60 @@
 <div class="container">
-  <h1 class="institution">{{institution}}</h1>
-  <div class="degree" *ngFor="let d of degree">{{d}}</div>
-  <h2 class="course">Courses Taken</h2>
-  <div *ngFor="let c of courses" class="course-container">
-    <h3 class="category">{{c[0]}}</h3>
+  <div class="left">
+    <h1 class="institution">{{institution}}</h1>
+    <div class="degree" *ngFor="let d of degree">{{d}}</div>
+    <h2 class="skills">Skills</h2>
+    <h3>Data structures and algorithms</h3>
     <ul>
-      <li *ngFor="let course of c[1]">{{course}}</li>
+      <li>Array, Linked List, Binary Search Tree, AVL Tree, B+ Tree, Graphs</li>
+      <li>Regex, Automata, Turing Machine, NP-hardness proof</li>
+      <li>Divide and conquer, Dynamic programming, Linear Programming</li>
+      <li>Linear system, Root finding, Gradient descent</li>
     </ul>
+    <h3>AI and Machine Learning</h3>
+    <ul>
+      <li>Informed Graph Search, Game Tree, Reinforcement Learning</li>
+      <li>Support Vector Machine, Decision Tree, Random Forest, Clustering algorithms</li>
+      <li>Neural networks</li>
+      <li>PID control, First order logic</li>
+    </ul>
+    <h3>Machine learning tools</h3>
+    <ul>
+      <li>Python: Numpy, Scipy, Scikit-learn, Tensorflow, Keras</li>
+      <li>Java: Weka</li>
+    </ul>
+    <h3>Software Principles</h3>
+    <ul>
+      <li>Object oriented programming, MVC and MVVM UI design</li>
+      <li>Iterative product design, User study</li>
+      <li>OpenGL, SDL</li>
+    </ul>
+    <h3>Software Tools</h3>
+    <ul>
+      <li>Python: Flask</li>
+      <li>Javascript: Node, Express, Angular, React, D3</li>
+      <li>Unity3D: C# scripts</li>
+      <li>Unreal4: C++ scripts</li>
+    </ul>
+    <h3>System and Programming Languages</h3>
+    <ul>
+      <li>Understanding of Processes, Virtual Memory and File system</li>
+      <li>Low level networking and sockets</li>
+      <li>Language interpreter</li>
+    </ul>
+    <h3>Programming and Markup</h3>
+    <ul>
+      <li>Proficient: C++, Java, Javascript, HTML, Python, Matlab, Latex, Markdown</li>
+      <li>Fluent: Ruby, Lua, Bash, R</li>
+      <li>Other: EmacsLisp, ChucK</li>
+    </ul>
+  </div>
+  <div class="right">
+    <h2 class="course">Courses Taken</h2>
+    <div *ngFor="let c of courses" class="course-container">
+      <h3 class="category">{{c[0]}}</h3>
+      <ul>
+        <li *ngFor="let course of c[1]">{{course}}</li>
+      </ul>
+    </div>
   </div>
 </div>
