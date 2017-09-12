@@ -1,9 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+**/dist
+**/build
+
 data/*
 uploads
-backend/static/**/*.png
-backend/static/**/*.gif
 backend/static/**/*.pdf
 
 # compiled output
